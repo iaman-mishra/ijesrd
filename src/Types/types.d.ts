@@ -1,0 +1,46 @@
+import { SxProps, Theme } from "@mui/material/styles";
+
+declare global {
+  interface IRoute {
+    label: string;
+    href: string;
+    icon?: React.JSX.Element;
+  }
+
+  interface NavigationTabProps {
+    routes: IRoute[];
+    orientation: "vertical" | "horizontal";
+    isCentered: boolean;
+    style: SxProps<Theme>;
+    showIcon?: boolean;
+  }
+
+  interface IStyle {
+    [key: string]: SxProps<Theme>;
+  }
+
+  interface INavDrawerButton {
+    routes: IRoute[];
+  }
+
+  interface FeatureCardProps {
+    icon: React.ReactNode;
+    title: string;
+    description: string;
+  }
+
+  interface AnimatedCounterProps {
+    value: number;
+    duration?: number;
+  }
+
+  type SectionHeaderVariants = "primary" | "secondary";
+
+  interface ISectionHeader {
+    title: string;
+    description?: string;
+    variant?: SectionHeaderVariants;
+  }
+}
+
+export {};
