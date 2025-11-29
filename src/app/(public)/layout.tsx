@@ -1,13 +1,15 @@
-// import Header from "@/components/public/header";
 import { Box } from "@mui/material";
 import React, { ReactNode } from "react";
 import { LenisProvider } from "./LenisProvider";
+import Header from "@/Components/Header";
+import NavBar from "@/Components/NavBar";
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (
     <LenisProvider>
       <Box component={"div"} sx={style.layout}>
-        {/* <Header /> */}
+        <Header />
+        <NavBar />
         {children}
       </Box>
     </LenisProvider>

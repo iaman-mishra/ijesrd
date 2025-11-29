@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import Providers from "./Providers";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.variable}`}>{children}</body>
+      <body className={`${quicksand.variable}`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
