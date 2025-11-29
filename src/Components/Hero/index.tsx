@@ -1,16 +1,12 @@
 import Box from "@mui/material/Box";
-import React, { Suspense } from "react";
-import HeroImage from "@/Lottie/StudentsLearning.json";
+import React from "react";
 import { Typography, Button, Stack } from "@mui/material";
 import { ArrowRight } from "lucide-react";
-import dynamic from "next/dynamic";
-
-const LottieView = dynamic(() => import("../common/LottieView"))
+import HeroLottie from "./HeroLottie";
 
 const Hero: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
-
       <Box sx={style.textContent}>
         <Typography sx={style.title} variant="h1" component={"h1"}>
           {"We Welcome Latest\n Research Articles in\n Field of Science"}
@@ -40,9 +36,8 @@ const Hero: React.FC = () => {
       </Box>
 
       <Box sx={style.lottie}>
-        <LottieView animationData={HeroImage} />
+        <HeroLottie />
       </Box>
-
     </Box>
   );
 };
@@ -129,7 +124,6 @@ const style: IStyle = {
   },
   lottie: {
     flex: 1,
-    height: "500px",
   },
 };
 

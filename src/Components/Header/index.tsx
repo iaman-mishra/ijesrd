@@ -34,11 +34,7 @@ const style: IStyle = {
     paddingX: "15px",
     marginX: "auto",
     width: "100%",
-    maxWidth: {
-      md: "720px",
-      lg: "992px",
-      xl: "1140px",
-    },
+    maxWidth: "1140px",
     display: { xs: "none", md: "flex" },
     borderBottom: "1px solid #ddd",
     paddingY: "30px",
