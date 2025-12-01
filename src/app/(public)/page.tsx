@@ -1,7 +1,11 @@
-import Hero from "@/Components/Hero";
-import WhyChooseUs from "@/Components/WhyChooseUs";
-import { Box, Divider } from "@mui/material";
 import React from "react";
+import dynamic from "next/dynamic";
+import { Box, Divider } from "@mui/material";
+
+import Hero from "@/Components/Hero";
+
+const WhyChooseUs = dynamic(() => import('@/Components/WhyChooseUs'))
+const HomeStats = dynamic(() => import('@/Components/HomeStats'))
 
 const page: React.FC = () => {
   return (
@@ -9,6 +13,7 @@ const page: React.FC = () => {
       <Hero />
       <Divider />
       <WhyChooseUs />
+      <HomeStats />
     </Box>
   );
 };

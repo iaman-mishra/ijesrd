@@ -45,3 +45,9 @@ export const features = [
       "Your research gets worldwide recognition through our extensive network and digital platform.",
   },
 ];
+
+export const statsData = [
+  { number: 5, icon: "k+", label: "Published Articles" },
+  { number: 120, icon: "+", label: "Active Researchers" },
+  { number: 7, icon: "", label: "Impact Factor" },
+];
