@@ -123,7 +123,7 @@ const style: IStyle = {
     paddingY: { xs: "40px", md: "60px", xl: "80px" },
     marginX: "auto",
     maxWidth: { md: "720px", lg: "992px", xl: "1140px" },
-    height: { xs: "auto", md: "300vh" },
+    height: { xs: "auto", md: "200vh" },
   },
   stickyContainer: {
     position: { xs: "static", md: "sticky" },
@@ -143,7 +143,7 @@ const style: IStyle = {
       xs: "none",
       md: "block",
     },
-    bgcolor: "primary.main",
+    bgcolor: "secondary.main",
     position: "absolute",
     top: "50%",
     width: "100%",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import {
   Box,
   Table,
@@ -8,8 +8,9 @@ import {
   TableRow,
 } from "@mui/material";
 import SectionHeader from "../common/SectionHeader";
-import ugcImage from "@/assets/images/UGC.jpg";
+import ugcImage from "@/assets/images/UGC.webp";
 import { ugcApprovalDetails } from "@/constants/data";
+import Image from "next/image";
 
 
 const UGCDetails: React.FC = () => {
@@ -80,17 +81,10 @@ const UGCDetails: React.FC = () => {
           </TableBody>
         </Table>
 
-        <Box
-          component={"img"}
-          src={ugcImage.src}
-          sx={{
-            position: "absolute",
-            top: "60%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            pointerEvents: "none",
-            opacity: 0.08,
-          }}
+        <Image
+          src={ugcImage}
+          alt="UGC Approval"
+          style={style.backgroundImage as CSSProperties}
         />
       </Box>
     </Box>
@@ -116,6 +110,14 @@ const style: IStyle = {
     flexDirection: "column",
     gap: "2rem",
   },
+  backgroundImage: {
+    position: "absolute",
+    top: "60%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    pointerEvents: "none",
+    opacity: 0.08,
+  }
 };
 
 export default UGCDetails;
