@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import {
   Brain,
   ChartNoAxesCombined,
@@ -50,4 +51,32 @@ export const statsData = [
   { number: 5, icon: "k+", label: "Published Articles" },
   { number: 120, icon: "+", label: "Active Researchers" },
   { number: 7, icon: "", label: "Impact Factor" },
+];
+
+export const ugcApprovalDetails = [
+  {
+    label: "Name of the Journal:",
+    value:
+      "International Journal of Engineering & Science Research and Development",
+  },
+  {
+    label: "ISSN:",
+    value: "2456-9283",
+  },
+  {
+    label: "Discipline:",
+    value: "Multidisciplinary",
+  },
+  {
+    label: "Publisher:",
+    value: "IJESRD Publication",
+  },
+  {
+    label: "Country Of Publication:",
+    value: "India",
+  },
+  {
+    label: "Processing Charges:",
+    value: <Button variant="outlined">View Charges</Button>,
+  },
 ];

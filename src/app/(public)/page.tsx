@@ -6,6 +6,8 @@ import Hero from "@/Components/Hero";
 
 const WhyChooseUs = dynamic(() => import('@/Components/WhyChooseUs'))
 const HomeStats = dynamic(() => import('@/Components/HomeStats'))
+const UGCDetails = dynamic(() => import('@/Components/UGCDetails'))
+const PublishingSteps = dynamic(() => import('@/Components/PublishingSteps'))
 
 const page: React.FC = () => {
   return (
@@ -14,6 +16,9 @@ const page: React.FC = () => {
       <Divider />
       <WhyChooseUs />
       <HomeStats />
+      <UGCDetails />
+      <Divider />
+      <PublishingSteps />
     </Box>
   );
 };
