@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Divider } from "@mui/material";
 import React, { ReactNode } from "react";
 import { LenisProvider } from "./LenisProvider";
 import Header from "@/Components/Header";

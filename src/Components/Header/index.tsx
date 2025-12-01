@@ -36,7 +36,6 @@ const style: IStyle = {
     width: "100%",
     maxWidth: "1140px",
     display: { xs: "none", md: "flex" },
-    borderBottom: "1px solid #ddd",
     paddingY: "30px",
   },
   containerLeft: { flex: 1, display: "flex", gap: 2 },

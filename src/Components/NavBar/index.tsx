@@ -1,4 +1,4 @@
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 import { Search } from "lucide-react";
 import React from "react";
 import NavigationTab from "../common/NavigationTab";
@@ -8,35 +8,45 @@ import { routes } from "@/constants/routes";
 const NavBar: React.FC = () => {
   return (
     <Box component={"nav"} sx={style.section}>
-      <NavDrawerButton routes={routes} />
-      <Typography>ILLAR</Typography>
+      <Divider />
+      <Box sx={style.container}>
+        <NavDrawerButton routes={routes} />
+        <Typography>ILLAR</Typography>
+        <NavigationTab
+          orientation={"horizontal"}
+          routes={routes}
+          isCentered={true}
+          style={style.navDesktop}
+        />
 
-      <NavigationTab
-        orientation={"horizontal"}
-        routes={routes}
-        isCentered={true}
-        style={style.navDesktop}
-      />
+        <Button
+          variant="contained"
+          sx={{ display: { xs: "none", md: "inline-flex" } }}
+        >
+          Login
+        </Button>
 
-      <Button
-        variant="contained"
-        sx={{ display: { xs: "none", md: "inline-flex" } }}
-      >
-        Login
-      </Button>
-
-      <IconButton
-        aria-label="open search page"
-        sx={{ display: { xs: "inline-flex", md: "none" } }}
-      >
-        <Search />
-      </IconButton>
+        <IconButton
+          aria-label="open search page"
+          sx={{ display: { xs: "inline-flex", md: "none" } }}
+        >
+          <Search />
+        </IconButton>
+      </Box>
+      <Divider />
     </Box>
   );
 };
 
 const style: IStyle = {
   section: {
+    position: "sticky",
+    top: 0,
+    bgcolor: "bg.main",
+    zIndex: 10,
+    width: "100%",
+  },
+  container: {
     paddingX: "15px",
     marginX: "auto",
     width: "100%",
@@ -46,11 +56,7 @@ const style: IStyle = {
     gap: 5,
     alignItems: "center",
     justifyContent: "space-between",
-    borderBottom: "1px solid #ddd",
-    position: "sticky",
-    top: 0,
-    bgcolor: "bg.main",
-    zIndex: 10,
+
   },
   navDesktop: {
     display: { xs: "none", md: "flex" },
