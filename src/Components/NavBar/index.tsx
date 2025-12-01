@@ -49,7 +49,7 @@ const style: IStyle = {
     borderBottom: "1px solid #ddd",
     position: "sticky",
     top: 0,
-    bgcolor: "white",
+    bgcolor: "bg.main",
     zIndex: 10,
   },
   navDesktop: {
