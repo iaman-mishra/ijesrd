@@ -1,8 +1,12 @@
 import { Button } from "@mui/material";
 import {
+  BookOpenCheck,
   Brain,
   ChartNoAxesCombined,
+  CreditCard,
   Gauge,
+  NotebookText,
+  Paperclip,
   ShieldCheck,
   Star,
   Users,
@@ -78,5 +82,32 @@ export const ugcApprovalDetails = [
   {
     label: "Processing Charges:",
     value: <Button variant="outlined">View Charges</Button>,
+  },
+];
+
+export const publishStepsData = [
+  {
+    step: 1,
+    title: "Submit Paper",
+    description: "Upload your research paper with all required documents.",
+    icon: <Paperclip />,
+  },
+  {
+    step: 2,
+    title: "Review Process",
+    description: "Our expert reviewers evaluate your paper for quality.",
+    icon: <BookOpenCheck />,
+  },
+  {
+    step: 3,
+    title: "Pay Fees",
+    description: "Complete the publication fee payment to proceed.",
+    icon: <CreditCard />,
+  },
+  {
+    step: 4,
+    title: "Paper Published",
+    description: "Your paper is officially published and available.",
+    icon: <NotebookText />,
   },
 ];

@@ -41,6 +41,18 @@ declare global {
     description?: string;
     variant?: SectionHeaderVariants;
   }
+
+  interface Step {
+    step: number;
+    title: string;
+    description: string;
+    icon: React.ReactNode;
+  }
+
+  interface AnimatedCradsWrapperProps {
+    steps: Step[];
+    header: React.ReactNode;
+  }
 }
 
 export {};
