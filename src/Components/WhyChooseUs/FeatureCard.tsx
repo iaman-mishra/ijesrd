@@ -30,12 +30,12 @@ const style: IStyle = {
   },
   card: {
     height: "100%",
-    transition: "all 0.3s ease-in-out",
-    borderRadius: "12px",
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.08)",
-    border: "1px solid #f0f0f0",
+    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
+    borderRadius: "16px",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
+    border: "1px solid rgba(0, 0, 0, 0.05)",
     "&:hover": {
-      transform: "translateY(-8px)",
+      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
     },
   },
   cardContent: {
@@ -60,9 +60,10 @@ const style: IStyle = {
     marginBottom: "0.5rem",
     border: "2px solid",
     borderColor: "secondary.main",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
   },
   cardTitle: {
-    fontWeight: "500",
+    fontWeight: "600",
   },
 };
 

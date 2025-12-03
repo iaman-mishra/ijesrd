@@ -1,14 +1,13 @@
 "use client";
 import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 
 const AnimatedCradsWrapper: React.FC<AnimatedCradsWrapperProps> = ({
   steps,
   header,
 }) => {
   const sectionRef = useRef(null);
-
   const MotionBox = motion.create(Box);
 
   const { scrollYProgress } = useScroll({
@@ -16,34 +15,7 @@ const AnimatedCradsWrapper: React.FC<AnimatedCradsWrapperProps> = ({
     offset: ["start start", "end end"],
   });
 
-  const progressBarScale = useTransform(scrollYProgress, [0.2, 0.9], [0, 1]);
-
-  const card1Opacity = useTransform(scrollYProgress, [0.1, 0.15], [0.5, 1]);
-  const card1Scale = useTransform(scrollYProgress, [0.1, 0.15], [0.8, 1]);
-
-  const card2Opacity = useTransform(scrollYProgress, [0.3, 0.35], [0.5, 1]);
-  const card2Scale = useTransform(scrollYProgress, [0.3, 0.35], [0.8, 1]);
-
-  const card3Opacity = useTransform(scrollYProgress, [0.5, 0.55], [0.5, 1]);
-  const card3Scale = useTransform(scrollYProgress, [0.5, 0.55], [0.8, 1]);
-
-  const card4Opacity = useTransform(scrollYProgress, [0.7, 0.75], [0.5, 1]);
-  const card4Scale = useTransform(scrollYProgress, [0.7, 0.75], [0.8, 1]);
-
-  const getCardAnimation = (index: number) => {
-    switch (index) {
-      case 0:
-        return { opacity: card1Opacity, scale: card1Scale };
-      case 1:
-        return { opacity: card2Opacity, scale: card2Scale };
-      case 2:
-        return { opacity: card3Opacity, scale: card3Scale };
-      case 3:
-        return { opacity: card4Opacity, scale: card4Scale };
-      default:
-        return { opacity: card1Opacity, scale: card1Scale };
-    }
-  };
+  const progressBarScale = useTransform(scrollYProgress, [0.1, 0.9], [0, 1]);
 
   return (
     <Box component={"section"} sx={style.section} ref={sectionRef}>
@@ -59,36 +31,75 @@ const AnimatedCradsWrapper: React.FC<AnimatedCradsWrapperProps> = ({
           />
 
           <Box sx={style.cardsContainer}>
-            {steps.map((step, index) => {
-              const animation = getCardAnimation(index);
-              return (
-                <MotionBox
-                  key={step.step}
-                  style={{
-                    opacity: animation.opacity,
-                    scale: animation.scale,
-                  }}
-                  sx={style.card}
-                >
-                  <Box sx={style.stepIcon}>{step.icon}</Box>
-                  <Box sx={style.cardContent}>
-                    <Typography variant="h4" sx={style.stepTitle}>
-                      {step.title}
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      {step.description}
-                    </Typography>
-                  </Box>
-                  <Typography sx={style.count} variant="caption">
-                    Step {step.step}
-                  </Typography>
-                </MotionBox>
-              );
-            })}
+            {steps.map((step, index) => (
+              <AnimatedCard
+                key={step.step}
+                step={step}
+                index={index}
+                totalSteps={steps.length}
+                scrollYProgress={scrollYProgress}
+              />
+            ))}
           </Box>
         </Box>
       </Box>
     </Box>
+  );
+};
+
+interface AnimatedCardProps {
+  step: Step;
+  index: number;
+  totalSteps: number;
+  scrollYProgress: MotionValue<number>;
+}
+
+const AnimatedCard: React.FC<AnimatedCardProps> = ({
+  step,
+  index,
+  totalSteps,
+  scrollYProgress,
+}) => {
+  const MotionBox = motion.create(Box);
+
+  const startOffset = 0.1;
+  const endOffset = 0.9;
+  const totalRange = endOffset - startOffset;
+  const stepRange = totalRange / totalSteps;
+
+  const start = startOffset + index * stepRange;
+  const end = start + stepRange * 0.8;
+
+  const opacity = useTransform(scrollYProgress, [start, end], [0, 1]);
+  const scale = useTransform(scrollYProgress, [start, end], [0.5, 1]);
+  const y = useTransform(scrollYProgress, [start, end], [100, 0]);
+  const filter = useTransform(
+    scrollYProgress,
+    [start, end],
+    ["blur(10px)", "blur(0px)"]
+  );
+
+  return (
+    <MotionBox
+      style={{
+        opacity,
+        scale,
+        y,
+        filter,
+      }}
+      sx={style.card}
+    >
+      <Box sx={style.stepIcon}>{step.icon}</Box>
+      <Box sx={style.cardContent}>
+        <Typography variant="h4" sx={style.stepTitle}>
+          {step.title}
+        </Typography>
+        <Typography variant="subtitle2">{step.description}</Typography>
+      </Box>
+      <Typography sx={style.count} variant="caption">
+        Step {step.step}
+      </Typography>
+    </MotionBox>
   );
 };
 
@@ -99,13 +110,12 @@ const style: IStyle = {
     paddingY: { xs: "40px", md: "60px", xl: "80px" },
     marginX: "auto",
     maxWidth: { md: "720px", lg: "992px", xl: "1140px" },
-    height: { xs: "auto", md: "200vh" },
+    height: { xs: "auto", md: "250vh" },
   },
   stickyContainer: {
     position: { xs: "static", md: "sticky" },
-    top: "10vh",
+    top: "15vh",
     height: "auto",
-
     display: "flex",
     flexDirection: "column",
     gap: "2rem",
@@ -123,9 +133,10 @@ const style: IStyle = {
     position: "absolute",
     top: "50%",
     width: "100%",
-    height: 5,
+    height: 4,
     borderRadius: 20,
     transformOrigin: "left",
+    zIndex: 0,
   },
   cardsContainer: {
     position: "relative",
@@ -134,53 +145,53 @@ const style: IStyle = {
       xs: "1fr",
       md: "repeat(4, 1fr)",
     },
-    gap: {
-      xs: "2rem",
-      md: "1.5rem",
-    },
+    gap: "2rem",
+    zIndex: 1,
   },
   card: {
     position: "relative",
-    backgroundColor: "white",
-    borderRadius: "12px",
-    padding: "2rem 1.5rem 1.5rem",
-    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-    border: "1px solid #f0f0f0",
+    backgroundColor: "bg.main",
+    borderRadius: "16px",
+    padding: "2rem 1.5rem",
+    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
+    border: "1px solid rgba(0, 0, 0, 0.05)",
     textAlign: "center",
-    transition: "all 0.3s ease",
+    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
     "&:hover": {
-      boxShadow: "0 8px 30px rgba(0, 0, 0, 0.12)",
+      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
     },
   },
   stepIcon: {
-    width: "60px",
-    height: "60px",
+    width: "70px",
+    height: "70px",
     backgroundColor: "secondary.100",
     borderRadius: "50%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "1.5rem",
-    margin: "0 auto 1rem",
+    margin: "0 auto 1.5rem",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
     border: "2px solid",
     borderColor: "secondary.main",
   },
   cardContent: {
     display: "flex",
     flexDirection: "column",
-    gap: "0.75rem",
+    gap: "1rem",
   },
   stepTitle: {
     fontWeight: "500",
   },
   count: {
     position: "absolute",
-    top: "-10px",
-    right: "12px",
+    top: "-12px",
+    right: "20px",
     backgroundColor: "secondary.main",
     color: "text.secondary",
-    padding: "4px 12px",
+    padding: "4px 16px",
     borderRadius: "20px",
+    fontWeight: "500",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
   },
 };
 
