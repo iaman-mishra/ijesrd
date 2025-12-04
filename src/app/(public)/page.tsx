@@ -19,6 +19,7 @@ const page: React.FC = () => {
       <UGCDetails />
       <Divider />
       <PublishingSteps />
+      {/* this is comment */}
     </Box>
   );
 };
