@@ -7,7 +7,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import SectionHeader from "../common/SectionHeader";
+import SectionHeader from "@/Components/common/SectionHeader"; 
 import ugcImage from "@/assets/images/UGC.webp";
 import { ugcApprovalDetails } from "@/constants/data";
 import Image from "next/image";

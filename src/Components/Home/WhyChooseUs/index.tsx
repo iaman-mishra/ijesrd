@@ -1,7 +1,7 @@
 import React from "react";
 import FeatureCard from "./FeatureCard";
 import { Box } from "@mui/material";
-import SectionHeader from "../common/SectionHeader";
+import SectionHeader from "@/Components/common/SectionHeader";
 import { features } from "@/constants/data";
 
 const WhyChooseUs: React.FC = () => {

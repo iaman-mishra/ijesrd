@@ -2,12 +2,14 @@ import React from "react";
 import dynamic from "next/dynamic";
 import { Box, Divider } from "@mui/material";
 
-import Hero from "@/Components/Hero";
+import Hero from "@/Components/Home/Hero";
 
-const WhyChooseUs = dynamic(() => import('@/Components/WhyChooseUs'))
-const HomeStats = dynamic(() => import('@/Components/HomeStats'))
-const UGCDetails = dynamic(() => import('@/Components/UGCDetails'))
-const PublishingSteps = dynamic(() => import('@/Components/PublishingSteps'))
+const WhyChooseUs = dynamic(() => import("@/Components/Home/WhyChooseUs"));
+const HomeStats = dynamic(() => import("@/Components/Home/HomeStats"));
+const UGCDetails = dynamic(() => import("@/Components/Home/UGCDetails"));
+const PublishingSteps = dynamic(
+  () => import("@/Components/Home/PublishingSteps")
+);
 
 const page: React.FC = () => {
   return (

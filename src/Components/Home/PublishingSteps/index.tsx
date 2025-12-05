@@ -1,4 +1,4 @@
-import SectionHeader from "../common/SectionHeader";
+import SectionHeader from "@/Components/common/SectionHeader";
 import { publishStepsData } from "@/constants/data";
 import AnimatedCradsWrapper from "./AnimatedCradsWrapper";
 

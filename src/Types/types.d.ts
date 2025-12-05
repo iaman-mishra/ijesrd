@@ -31,7 +31,10 @@ declare global {
 
   interface AnimatedCounterProps {
     value: number;
+    className?: string;
     duration?: number;
+    margin?: string;
+    decimals?: number;
   }
 
   type SectionHeaderVariants = "primary" | "secondary";
