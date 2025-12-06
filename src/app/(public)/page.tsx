@@ -10,6 +10,7 @@ const UGCDetails = dynamic(() => import("@/Components/Home/UGCDetails"));
 const PublishingSteps = dynamic(
   () => import("@/Components/Home/PublishingSteps")
 );
+const IndexShowcase = dynamic(() => import("@/Components/Home/IndexShowcase"));
 
 const page: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const page: React.FC = () => {
       <UGCDetails />
       <Divider />
       <PublishingSteps />
+      <IndexShowcase />
     </Box>
   );
 };
