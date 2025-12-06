@@ -22,6 +22,7 @@ const page: React.FC = () => {
       <UGCDetails />
       <Divider />
       <PublishingSteps />
+      <Divider />
       <IndexShowcase />
     </Box>
   );
