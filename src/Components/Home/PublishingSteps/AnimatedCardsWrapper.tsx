@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 
-const AnimatedCradsWrapper: React.FC<AnimatedCradsWrapperProps> = ({
+const AnimatedCardsWrapper: React.FC<AnimatedCardsWrapperProps> = ({
   steps,
   header,
 }) => {
@@ -195,4 +195,4 @@ const style: IStyle = {
   },
 };
 
-export default AnimatedCradsWrapper;
+export default AnimatedCardsWrapper;

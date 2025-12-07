@@ -1,10 +1,10 @@
 import SectionHeader from "@/Components/common/SectionHeader";
 import { publishStepsData } from "@/constants/data";
-import AnimatedCradsWrapper from "./AnimatedCradsWrapper";
+import AnimatedCardsWrapper from "./AnimatedCardsWrapper";
 
 const PublishingSteps: React.FC = () => {
   return (
-    <AnimatedCradsWrapper
+    <AnimatedCardsWrapper
       steps={publishStepsData}
       header={
         <SectionHeader

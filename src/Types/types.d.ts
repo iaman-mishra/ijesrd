@@ -52,7 +52,7 @@ declare global {
     icon: React.ReactNode;
   }
 
-  interface AnimatedCradsWrapperProps {
+  interface AnimatedCardsWrapperProps {
     steps: Step[];
     header: React.ReactNode;
   }

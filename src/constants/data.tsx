@@ -1,4 +1,16 @@
 import { Button } from "@mui/material";
+import AchadmiaEdu from "@/assets/index-platforms/achadmia-edu.webp";
+import Crossref from "@/assets/index-platforms/crossrefe.png";
+import GoogleScholar from "@/assets/index-platforms/google-scholar.webp";
+import IssnLogo from "@/assets/index-platforms/issn_logo.webp";
+import Issuu from "@/assets/index-platforms/issuu.webp";
+import OpenAccess from "@/assets/index-platforms/open-access-logo.webp";
+import RefSeek from "@/assets/index-platforms/ref-seek.png";
+import ResearcherId from "@/assets/index-platforms/researcher-id.png";
+import ResearchGate from "@/assets/index-platforms/researchgate.svg?url";
+import RoadIssn from "@/assets/index-platforms/road-issn.webp";
+import Scribd from "@/assets/index-platforms/scribd.gif";
+import SemanticScholar from "@/assets/index-platforms/semantic-scholar.webp";
 import {
   BookOpenCheck,
   Brain,
@@ -109,5 +121,56 @@ export const publishStepsData = [
     title: "Paper Published",
     description: "Your paper is officially published and available.",
     icon: <NotebookText />,
+  },
+];
+
+export const IndexImages = [
+  {
+    name: "Achadmia Edu",
+    logo: AchadmiaEdu,
+  },
+  {
+    name: "Crossref",
+    logo: Crossref,
+  },
+  {
+    name: "Google Scholar",
+    logo: GoogleScholar,
+  },
+  {
+    name: "ISSN Logo",
+    logo: IssnLogo,
+  },
+  {
+    name: "ISSUU",
+    logo: Issuu,
+  },
+  {
+    name: "Open Access",
+    logo: OpenAccess,
+  },
+  {
+    name: "RefSeek",
+    logo: RefSeek,
+  },
+  {
+    name: "ResearcherId",
+    logo: ResearcherId,
+  },
+  {
+    name: "ResearchGate",
+    logo: ResearchGate,
+  },
+  {
+    name: "RoadIssn",
+    logo: RoadIssn,
+  },
+  {
+    name: "Scribd",
+    logo: Scribd,
+  },
+  {
+    name: "SemanticScholar",
+    logo: SemanticScholar,
   },
 ];
