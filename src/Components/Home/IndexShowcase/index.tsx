@@ -67,6 +67,7 @@ const IndexShowcase: React.FC = () => {
       logo: SemanticScholar,
     },
   ];
+  
   return (
     <Box component={"section"} sx={style.section}>
       <SectionHeader
@@ -75,10 +76,7 @@ const IndexShowcase: React.FC = () => {
       />
 
       <Box>
-        <Marquee
-          gradient
-          className=""
-        >
+        <Marquee gradient className="">
           {Logos.map((img) => (
             <Box
               sx={{
