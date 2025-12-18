@@ -13,28 +13,28 @@ const IndexShowcase: React.FC = () => {
         description={"Major International Journals Indexing Platform"}
       />
 
-      <Marquee gradient>
+      <Marquee gradient gradientWidth={80} pauseOnHover>
         {IndexImages.slice(0, 6).map((img) => (
           <Box sx={style.card}>
             <Image
               src={img.logo}
               alt={img.name}
-              width={140}
-              height={60}
+              height={40}
+              width={80}
               objectFit="cover"
             />
           </Box>
         ))}
       </Marquee>
 
-      <Marquee gradient direction="right">
+      <Marquee gradient direction="right" gradientWidth={80} pauseOnHover>
         {IndexImages.slice(6).map((img) => (
           <Box sx={style.card}>
             <Image
               src={img.logo}
               alt={img.name}
-              width={140}
-              height={60}
+              height={40}
+              width={80}
               objectFit="cover"
             />
           </Box>
@@ -54,11 +54,6 @@ const style: IStyle = {
       xl: "80px",
     },
     marginX: "auto",
-    maxWidth: {
-      md: "720px",
-      lg: "992px",
-      xl: "1140px",
-    },
     display: "flex",
     flexDirection: "column",
     gap: "2rem",
