@@ -109,7 +109,7 @@ const style: IStyle = {
     paddingX: "15px",
     paddingY: { xs: "40px", md: "60px", xl: "80px" },
     marginX: "auto",
-    maxWidth: { md: "720px", lg: "992px", xl: "1140px" },
+    maxWidth: { lg: "992px", xl: "1140px" },
     height: { xs: "auto", md: "250vh" },
   },
   stickyContainer: {
