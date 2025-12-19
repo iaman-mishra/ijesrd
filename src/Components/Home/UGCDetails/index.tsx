@@ -7,11 +7,10 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import SectionHeader from "@/Components/common/SectionHeader"; 
+import SectionHeader from "@/Components/Common/SectionHeader";
 import ugcImage from "@/assets/images/UGC.webp";
 import { ugcApprovalDetails } from "@/constants/data";
 import Image from "next/image";
-
 
 const UGCDetails: React.FC = () => {
   return (
@@ -117,7 +116,7 @@ const style: IStyle = {
     transform: "translate(-50%, -50%)",
     pointerEvents: "none",
     opacity: 0.08,
-  }
+  },
 };
 
 export default UGCDetails;

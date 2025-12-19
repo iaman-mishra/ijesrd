@@ -1,14 +1,12 @@
-
 import React from "react";
 import { Box, Typography } from "@mui/material";
-import SectionHeader from "@/Components/common/SectionHeader";
+import SectionHeader from "@/Components/Common/SectionHeader";
 import { statsData } from "@/constants/data";
 import AnimatedCounter from "@/Components/Motion/AnimatedCounter";
 const HomeStats: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <Box sx={style.container}>
-
         <SectionHeader variant="secondary" title={"Latest Insights"} />
 
         <Box sx={style.grid}>

@@ -4,7 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
 import { Box } from "@mui/material";
 import { CircleChevronLeft } from "lucide-react";
-import NavigationTab from "../common/NavigationTab";
+import NavigationTab from "../Common/NavigationTab";
 
 const NavDrawerButton: React.FC<INavDrawerButton> = ({ routes }) => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);

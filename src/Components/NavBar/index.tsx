@@ -1,7 +1,7 @@
 import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 import { Search } from "lucide-react";
 import React from "react";
-import NavigationTab from "../common/NavigationTab";
+import NavigationTab from "../Common/NavigationTab";
 import NavDrawerButton from "./NavDrawerButton";
 import { routes } from "@/constants/routes";
 
@@ -56,7 +56,6 @@ const style: IStyle = {
     gap: 5,
     alignItems: "center",
     justifyContent: "space-between",
-
   },
   navDesktop: {
     display: { xs: "none", md: "flex" },
