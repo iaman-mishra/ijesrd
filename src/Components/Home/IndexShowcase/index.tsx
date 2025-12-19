@@ -67,6 +67,11 @@ const style: IStyle = {
     py: 2,
     borderRadius: "20px",
     border: "1px solid #0000000d",
+    transition: "all 0.3s ease-in-out",
+    "&:hover": {
+      border: "1px solid ",
+      borderColor: "primary.main",
+    },
   },
 };
 
