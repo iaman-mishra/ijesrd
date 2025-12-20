@@ -150,7 +150,7 @@ const style: IStyle = {
   },
   card: {
     position: "relative",
-    backgroundColor: "bg.main",
+    // backgroundColor: "bg.main",
     borderRadius: "16px",
     padding: "2rem 1.5rem",
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",

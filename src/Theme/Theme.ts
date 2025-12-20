@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material/styles";
+import { m } from "motion/react";
 
 const Theme = createTheme({
   breakpoints: {
@@ -10,33 +11,34 @@ const Theme = createTheme({
       xl: 1200,
     },
   },
-
   colorSchemes: {
     light: {
       palette: {
         primary: {
-          main: "#14579E",
+          main: "#1976d2",
+          light: "#42a5f5",
+          dark: "#1565c0",
+          contrastText: "#fff",
         },
         secondary: {
           main: "#ff8966",
         },
         text: {
-          primary: "#636c77",
-          secondary: "#FFFFFF",
+          primary: "#000000de",
+          secondary: "#00000099",
+          disabled: "#00000061",
+        },
+        background: {
+          paper: "#fff",
+          default: "#fff",
         },
       },
     },
     dark: {
       palette: {
-        primary: {
-          main: "#14579E",
-        },
-        secondary: {
-          main: "#ff8966",
-        },
-        text: {
-          primary: "#fff",
-          secondary: "#636c77",
+        background: {
+          paper: "#000",
+          default: "#111",
         },
       },
     },
@@ -45,7 +47,6 @@ const Theme = createTheme({
   typography: {
     fontFamily: "var(--font-quicksand)",
     h1: {
-      color: "text.primary",
       fontSize: "2rem",
       fontWeight: "400",
       textTransform: "capitalize",
@@ -57,7 +58,6 @@ const Theme = createTheme({
       },
     },
     h2: {
-      color: "text.primary",
       fontSize: "1.75rem",
       fontWeight: "400",
       textTransform: "capitalize",
@@ -66,7 +66,6 @@ const Theme = createTheme({
       },
     },
     h3: {
-      color: "text.primary",
       fontSize: "1.5rem",
       fontWeight: "400",
       textTransform: "capitalize",
@@ -75,7 +74,6 @@ const Theme = createTheme({
       },
     },
     h4: {
-      color: "text.primary",
       fontSize: "1.25rem",
       fontWeight: "400",
       textTransform: "capitalize",
@@ -84,7 +82,6 @@ const Theme = createTheme({
       },
     },
     h5: {
-      color: "text.primary",
       fontSize: "1rem",
       fontWeight: "400",
       textTransform: "capitalize",
@@ -93,7 +90,6 @@ const Theme = createTheme({
       },
     },
     h6: {
-      color: "text.primary",
       fontSize: "0.5rem",
       fontWeight: "400",
       textTransform: "capitalize",
@@ -102,7 +98,6 @@ const Theme = createTheme({
       },
     },
     subtitle1: {
-      color: "text.primary",
       fontSize: "1.1rem",
       "@media (min-width:992px)": {
         fontSize: "1.375rem",
@@ -118,6 +113,15 @@ const Theme = createTheme({
     },
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: (theme) => ({
+        body: {
+          background: theme.palette.background.paper,
+          margin: 0,
+          padding: 0,
+        },
+      }),
+    },
     MuiButton: {
       defaultProps: {
         disableElevation: true,

@@ -20,14 +20,15 @@ const NavBar: React.FC = () => {
           style={style.navDesktop}
         />
 
-        <Button
-          variant="contained"
-          sx={{ display: { xs: "none", md: "inline-flex" } }}
-        >
-          Login
-        </Button>
-
-        <ThemeSwitch />
+        <Box sx={style.loginContainer}>
+          <ThemeSwitch />
+          <Button
+            variant="contained"
+            sx={{ display: { xs: "none", md: "inline-flex" } }}
+          >
+            Login
+          </Button>
+        </Box>
 
         <IconButton
           aria-label="open search page"
@@ -45,7 +46,7 @@ const style: IStyle = {
   section: {
     position: "sticky",
     top: 0,
-    bgcolor: "bg.main",
+    bgcolor: "background.default",
     zIndex: 10,
     width: "100%",
   },
@@ -59,6 +60,11 @@ const style: IStyle = {
     gap: 5,
     alignItems: "center",
     justifyContent: "space-between",
+  },
+  loginContainer: {
+    display: "flex",
+    gap: 2,
+    alignItems: "center",
   },
   navDesktop: {
     display: { xs: "none", md: "flex" },

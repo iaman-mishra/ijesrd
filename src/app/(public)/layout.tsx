@@ -21,9 +21,9 @@ export default layout;
 const style: IStyle = {
   layout: {
     width: "100%",
-    height: "100%",
     maxWidth: "1270px",
-    boxShadow: "0 0 15px 3px rgba(0, 0, 0, 0.20)",
+    boxShadow: 10,
     marginX: "auto",
+    bgcolor: "background.default",
   },
 };

@@ -27,7 +27,7 @@ const ThemeSwitch: React.FC = () => {
   const label = {
     light: "Light mode",
     dark: "Dark mode",
-    system: "System mode",
+    system: "System Default",
   }[mode];
 
   return (

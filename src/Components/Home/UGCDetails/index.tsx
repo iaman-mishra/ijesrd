@@ -26,7 +26,7 @@ const UGCDetails: React.FC = () => {
             borderRadius: "12px",
             overflow: "hidden",
             boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-            backgroundColor: "bg.main",
+            // backgroundColor: "bg.main",
             border: "1px solid rgba(0, 0, 0, 0.08)",
           }}
         >

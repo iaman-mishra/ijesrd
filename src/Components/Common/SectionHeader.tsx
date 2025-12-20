@@ -22,7 +22,7 @@ const SectionHeader: React.FC<ISectionHeader> = ({
       <Box
         sx={{
           ...style.underline,
-          bgcolor: isSecondary ? "bg.main" : "primary.main",
+          // bgcolor: isSecondary ? "bg.main" : "primary.main",
         }}
       />
       {description && (
