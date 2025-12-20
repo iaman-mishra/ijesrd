@@ -4,6 +4,7 @@ import React from "react";
 import NavigationTab from "../Common/NavigationTab";
 import NavDrawerButton from "./NavDrawerButton";
 import { routes } from "@/constants/routes";
+import ThemeSwitch from "./ThemeSwitch";
 
 const NavBar: React.FC = () => {
   return (
@@ -25,6 +26,8 @@ const NavBar: React.FC = () => {
         >
           Login
         </Button>
+
+        <ThemeSwitch />
 
         <IconButton
           aria-label="open search page"

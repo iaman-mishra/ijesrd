@@ -1,6 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 
-const lightTheme = createTheme({
+const Theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -10,24 +10,35 @@ const lightTheme = createTheme({
       xl: 1200,
     },
   },
-  palette: {
-    primary: {
-      main: "#14579E",
-      "100": "#14579E08",
-      "200": "#14579E14",
+
+  colorSchemes: {
+    light: {
+      palette: {
+        primary: {
+          main: "#14579E",
+        },
+        secondary: {
+          main: "#ff8966",
+        },
+        text: {
+          primary: "#636c77",
+          secondary: "#FFFFFF",
+        },
+      },
     },
-    secondary: {
-      main: "#ff8966",
-      "100": "#ff89661A",
-    },
-    text: {
-      primary: "#636c77",
-      secondary: "#FFFFFF",
-    },
-    bg: {
-      main: "#FFFFFF",
-      main10: "#FFFFFF1A",
-      main20: "#FFFFFF2A",
+    dark: {
+      palette: {
+        primary: {
+          main: "#14579E",
+        },
+        secondary: {
+          main: "#ff8966",
+        },
+        text: {
+          primary: "#fff",
+          secondary: "#636c77",
+        },
+      },
     },
   },
 
@@ -125,9 +136,5 @@ const lightTheme = createTheme({
     },
   },
 });
-
-const Theme = {
-  light: lightTheme,
-};
 
 export default Theme;
