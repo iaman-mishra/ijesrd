@@ -1,4 +1,11 @@
-import { Box, Button, Divider, IconButton } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  IconButton,
+  NoSsr,
+  Typography,
+} from "@mui/material";
 import { Search } from "lucide-react";
 import React from "react";
 import NavigationTab from "../Common/NavigationTab";
@@ -12,28 +19,37 @@ const NavBar: React.FC = () => {
     <Box component={"nav"} sx={style.section}>
       <Divider />
       <Box sx={style.container}>
-        <ResponsiveRender
-          ChildA={<NavDrawerButton routes={routes} />}
-          ChildB={
-            <NavigationTab
-              orientation={"horizontal"}
-              routes={routes}
-              isCentered={true}
-              style={style.navDesktop}
-            />
-          }
-        />
-        <Box sx={style.loginContainer}>
-          <ThemeSwitch />
+        <Box sx={style.left}>
+          <ResponsiveRender
+            ChildA={<NavDrawerButton routes={routes} />}
+            ChildB={
+              <NavigationTab
+                orientation={"horizontal"}
+                routes={routes}
+                isCentered={true}
+                style={style.navDesktop}
+              />
+            }
+          />
+        </Box>
+
+        <Box sx={style.center}>
+          <Typography variant="h5">IJESRD</Typography>
+        </Box>
+
+        <Box sx={style.right}>
+          <IconButton aria-label="open search page">
+            <Search />
+          </IconButton>
+          <Box sx={{ display: { xs: "none", md: "inline-flex" } }}>
+            <ThemeSwitch />
+          </Box>
           <Button
             variant="contained"
             sx={{ display: { xs: "none", md: "inline-flex" } }}
           >
             Login
           </Button>
-          <IconButton aria-label="open search page">
-            <Search />
-          </IconButton>
         </Box>
       </Box>
       <Divider />
@@ -58,13 +74,15 @@ const style: IStyle = {
     display: "flex",
     gap: 5,
     alignItems: "center",
-    justifyContent: "space-between",
   },
-  loginContainer: {
-    display: "flex",
-    gap: 2,
-    alignItems: "center",
+  left: { flex: 1, display: "flex", alignItems: "center" },
+  center: {
+    flex: 1,
+    textAlign: "center",
+    display: { xs: "inline-flex", md: "none" },
+    justifyContent: "center",
   },
+  right: { flex: 1, display: "flex", justifyContent: "flex-end", gap: 1 },
   navDesktop: {
     minHeight: 0,
     justifyContent: "space-between",

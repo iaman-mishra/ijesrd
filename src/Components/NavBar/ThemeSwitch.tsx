@@ -19,9 +19,9 @@ const ThemeSwitch: React.FC = () => {
   };
 
   const icon = {
-    light: <Sun size={20} />,
-    dark: <Moon size={20} />,
-    system: <Monitor size={20} />,
+    light: <Sun />,
+    dark: <Moon />,
+    system: <Monitor />,
   }[mode];
 
   const label = {
