@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import Providers from "./Providers";
 import "./globals.css";
-import { CSSProperties } from "react";
 
 const quicksand = Quicksand({
   subsets: ["latin"],

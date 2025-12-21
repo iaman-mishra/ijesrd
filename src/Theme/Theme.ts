@@ -31,14 +31,16 @@ const Theme = createTheme({
         background: {
           paper: "#fff",
           default: "#fff",
+          body: "#fff",
         },
       },
     },
     dark: {
       palette: {
         background: {
-          paper: "#000",
-          default: "#111",
+          paper: "#121212",
+          default: "#121212",
+          body: "#000",
         },
       },
     },
@@ -116,7 +118,7 @@ const Theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: (theme) => ({
         body: {
-          background: theme.palette.background.paper,
+          background: theme.palette.background.body,
           margin: 0,
           padding: 0,
         },

@@ -1,25 +1,28 @@
-import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
+import { Box, Button, Divider, IconButton } from "@mui/material";
 import { Search } from "lucide-react";
 import React from "react";
 import NavigationTab from "../Common/NavigationTab";
 import NavDrawerButton from "./NavDrawerButton";
 import { routes } from "@/constants/routes";
 import ThemeSwitch from "./ThemeSwitch";
+import ResponsiveRender from "../Common/ResponsiveRender";
 
 const NavBar: React.FC = () => {
   return (
     <Box component={"nav"} sx={style.section}>
       <Divider />
       <Box sx={style.container}>
-        <NavDrawerButton routes={routes} />
-        <Typography>ILLAR</Typography>
-        <NavigationTab
-          orientation={"horizontal"}
-          routes={routes}
-          isCentered={true}
-          style={style.navDesktop}
+        <ResponsiveRender
+          ChildA={<NavDrawerButton routes={routes} />}
+          ChildB={
+            <NavigationTab
+              orientation={"horizontal"}
+              routes={routes}
+              isCentered={true}
+              style={style.navDesktop}
+            />
+          }
         />
-
         <Box sx={style.loginContainer}>
           <ThemeSwitch />
           <Button
@@ -28,14 +31,10 @@ const NavBar: React.FC = () => {
           >
             Login
           </Button>
+          <IconButton aria-label="open search page">
+            <Search />
+          </IconButton>
         </Box>
-
-        <IconButton
-          aria-label="open search page"
-          sx={{ display: { xs: "inline-flex", md: "none" } }}
-        >
-          <Search />
-        </IconButton>
       </Box>
       <Divider />
     </Box>
@@ -67,7 +66,6 @@ const style: IStyle = {
     alignItems: "center",
   },
   navDesktop: {
-    display: { xs: "none", md: "flex" },
     minHeight: 0,
     justifyContent: "space-between",
     "& .MuiTab-root": {
