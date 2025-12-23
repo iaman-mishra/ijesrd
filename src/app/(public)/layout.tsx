@@ -7,12 +7,10 @@ import NavBar from "@/Components/NavBar";
 const layout = ({ children }: { children: ReactNode }) => {
   return (
     <LenisProvider>
-      <Box sx={{ bgcolor: "background.body" }}>
-        <Box component={"div"} sx={style.layout}>
-          <Header />
-          <NavBar />
-          {children}
-        </Box>
+      <Box component={"div"} sx={style.layout}>
+        <Header />
+        <NavBar />
+        {children}
       </Box>
     </LenisProvider>
   );

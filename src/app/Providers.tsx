@@ -7,7 +7,7 @@ import Theme from "@/Theme/Theme";
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <AppRouterCacheProvider>
-      <ThemeProvider theme={Theme} defaultMode={"system"}>
+      <ThemeProvider theme={Theme} defaultMode={"system"}  >
         <CssBaseline />
         {children}
       </ThemeProvider>
