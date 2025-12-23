@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
 import Providers from "./Providers";
 import "./globals.css";
+import { InitColorSchemeScript } from "@mui/material";
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${quicksand.variable}`}>
+        <InitColorSchemeScript attribute="class" />
         <Providers>{children}</Providers>
       </body>
     </html>

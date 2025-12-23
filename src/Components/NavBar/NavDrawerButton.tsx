@@ -14,6 +14,10 @@ const NavDrawerButton: React.FC<INavDrawerButton> = ({ routes }) => {
       <IconButton
         aria-label="open navigation drawer"
         sx={{
+          display: {
+            xs: "inline-flex",
+            md: "none",
+          },
           transform: drawerOpen ? "rotate(0deg)" : "rotate(180deg)",
           transition: "transform 0.5s ease",
         }}

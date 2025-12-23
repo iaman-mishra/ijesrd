@@ -3,7 +3,6 @@ import {
   Button,
   Divider,
   IconButton,
-  NoSsr,
   Typography,
 } from "@mui/material";
 import { Search } from "lucide-react";
@@ -12,7 +11,6 @@ import NavigationTab from "../Common/NavigationTab";
 import NavDrawerButton from "./NavDrawerButton";
 import { routes } from "@/constants/routes";
 import ThemeSwitch from "./ThemeSwitch";
-import ResponsiveRender from "../Common/ResponsiveRender";
 
 const NavBar: React.FC = () => {
   return (
@@ -20,16 +18,12 @@ const NavBar: React.FC = () => {
       <Divider />
       <Box sx={style.container}>
         <Box sx={style.left}>
-          <ResponsiveRender
-            ChildA={<NavDrawerButton routes={routes} />}
-            ChildB={
-              <NavigationTab
-                orientation={"horizontal"}
-                routes={routes}
-                isCentered={true}
-                style={style.navDesktop}
-              />
-            }
+          <NavDrawerButton routes={routes} />
+          <NavigationTab
+            orientation={"horizontal"}
+            routes={routes}
+            isCentered={true}
+            style={style.navDesktop}
           />
         </Box>
 
@@ -84,6 +78,7 @@ const style: IStyle = {
   },
   right: { flex: 1, display: "flex", justifyContent: "flex-end", gap: 1 },
   navDesktop: {
+    display: { xs: "none", md: "flex" },
     minHeight: 0,
     justifyContent: "space-between",
     "& .MuiTab-root": {

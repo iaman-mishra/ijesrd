@@ -11,6 +11,9 @@ const Theme = createTheme({
       xl: 1200,
     },
   },
+  cssVariables: {
+    colorSchemeSelector: "class",
+  },
   colorSchemes: {
     light: {
       palette: {
@@ -116,13 +119,12 @@ const Theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: (theme) => ({
+      styleOverrides: {
         body: {
-          background: theme.palette.background.body,
           margin: 0,
           padding: 0,
         },
-      }),
+      },
     },
     MuiButton: {
       defaultProps: {
