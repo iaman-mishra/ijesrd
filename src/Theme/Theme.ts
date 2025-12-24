@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material/styles";
-import { m } from "motion/react";
 
 const Theme = createTheme({
   breakpoints: {
@@ -25,6 +24,9 @@ const Theme = createTheme({
         },
         secondary: {
           main: "#ff8966",
+          light: "#FFD3C6",
+          dark: "#ff8966",
+          contrastText: "#fff",
         },
         text: {
           primary: "#000000de",
@@ -40,6 +42,18 @@ const Theme = createTheme({
     },
     dark: {
       palette: {
+        primary: {
+          main: "#1976d2",
+          light: "#42a5f5",
+          dark: "#1565c0",
+          contrastText: "#fff",
+        },
+        secondary: {
+          main: "#ff8966",
+          // light: "#FFD3C6",
+          // dark: "#ff8966",
+          contrastText: "#fff",
+        },
         background: {
           paper: "#121212",
           default: "#121212",

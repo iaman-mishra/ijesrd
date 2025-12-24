@@ -14,7 +14,9 @@ const SectionHeader: React.FC<ISectionHeader> = ({
         variant="h1"
         sx={{
           ...style.title,
-          color: isSecondary ? "text.secondary" : "text.primary",
+          color: isSecondary
+            ? "secondary.contrastText"
+            : "text.primary",
         }}
       >
         {title}
@@ -22,7 +24,7 @@ const SectionHeader: React.FC<ISectionHeader> = ({
       <Box
         sx={{
           ...style.underline,
-          // bgcolor: isSecondary ? "bg.main" : "primary.main",
+          bgcolor: isSecondary ? "secondary.main" : "primary.main",
         }}
       />
       {description && (
@@ -30,7 +32,9 @@ const SectionHeader: React.FC<ISectionHeader> = ({
           variant="subtitle1"
           sx={{
             ...style.subtitle,
-            color: isSecondary ? "text.secondary" : "text.primary",
+            color: isSecondary
+              ? "secondary.contrastText"
+              : "primary.text.primary",
           }}
           component="p"
         >
@@ -54,7 +58,6 @@ const style: IStyle = {
     borderRadius: "1rem",
     marginX: "auto",
     marginTop: "1rem",
-    marginBottom: "1.5rem",
   },
   subtitle: {
     maxWidth: "600px",

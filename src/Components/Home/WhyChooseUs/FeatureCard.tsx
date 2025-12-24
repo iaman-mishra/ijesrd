@@ -1,5 +1,4 @@
 import { Box, CardContent, Typography } from "@mui/material";
-import Card from "@mui/material/Card";
 import React from "react";
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -9,17 +8,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return (
     <Box sx={style.gridItem}>
-      <Card sx={style.card}>
-        <CardContent sx={style.cardContent}>
-          <Box sx={style.iconContainer}>{icon}</Box>
-          <Typography variant="h4" sx={style.cardTitle} component={"h2"}>
-            {title}
-          </Typography>
-          <Typography variant="subtitle2" component={"p"}>
-            {description}
-          </Typography>
-        </CardContent>
-      </Card>
+      <Box sx={style.card}>
+        <Box sx={style.iconContainer}>{icon}</Box>
+        <Typography variant="h4" sx={style.cardTitle} component={"h2"}>
+          {title}
+        </Typography>
+        <Typography variant="subtitle2" component={"p"}>
+          {description}
+        </Typography>
+      </Box>
     </Box>
   );
 };
@@ -29,38 +26,39 @@ const style: IStyle = {
     width: "100%",
   },
   card: {
+    display: "flex",
+    alignItems: "center",
+    gap: "1rem",
+    flexDirection: "column",
+    textAlign: "center",
     height: "100%",
-    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
     borderRadius: "16px",
+    border: "1px solid",
+    borderColor: "divider",
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
-    border: "1px solid rgba(0, 0, 0, 0.05)",
-    "&:hover": {
-      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
-    },
-  },
-  cardContent: {
+    transition: "all 300ms ease-in-out",
+    backgroundColor: "background.paper",
     padding: {
       xs: "1.5rem",
       md: "2rem",
     },
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    gap: "1rem",
+    "&:hover": {
+      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+      borderColor: "secondary.main",
+    },
   },
   iconContainer: {
     width: "70px",
     height: "70px",
     borderRadius: "50%",
-    bgcolor: "secondary.100",
+    bgcolor: "secondary.light",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "0.5rem",
     border: "2px solid",
     borderColor: "secondary.main",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+    
   },
   cardTitle: {
     fontWeight: "600",
