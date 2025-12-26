@@ -64,20 +64,20 @@ const style: IStyle = {
       xs: "1.5rem",
       md: "2rem",
     },
-    borderRadius: "12px",
-    // bgcolor: "bg.main10",
-    backdropFilter: "blur(10px)",
+    borderRadius: "16px",
+    bgcolor: "primary.main",
     transition: "all 0.3s ease-in-out",
     border: "1px solid",
-    borderColor: "bg.main20",
+    borderColor: "primary.contrastText",
+    color: "primary.contrastText",
     "&:hover": {
-      transform: "translateY(-8px)",
-      // bgcolor: "bg.main20",
+      transform: "translateY(-4px)",
+      bgcolor: "secondary.main",
       boxShadow: "0 8px 24px rgba(0, 0, 0, 0.2)",
+      color: "secondary.contrastText",
     },
   },
   number: {
-    color: "text.secondary",
     fontWeight: "600",
     marginBottom: "0.5rem",
     display: "flex",
@@ -87,7 +87,6 @@ const style: IStyle = {
   },
   label: {
     fontWeight: "400",
-    color: "text.secondary",
   },
 };
 
