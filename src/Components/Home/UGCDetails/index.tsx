@@ -16,36 +16,15 @@ const UGCDetails: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <SectionHeader title={"UGC Approved Journal"} />
-
-      <Box sx={{ position: "relative" }}>
-        <Table
-          sx={{
-            textAlign: "center",
-            maxWidth: { xs: "100%", lg: "80%" },
-            marginX: "auto",
-            borderRadius: "12px",
-            overflow: "hidden",
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-            // backgroundColor: "bg.main",
-            border: "1px solid rgba(0, 0, 0, 0.08)",
-          }}
-        >
-          <TableHead
-            sx={{
-              backgroundColor: "primary.main",
-              "& .MuiTableCell-root": {
-                borderBottom: "none",
-              },
-            }}
-          >
+      
+      <Box sx={style.tableWrapper}>
+        <Table sx={style.table}>
+          <TableHead sx={{ backgroundColor: "primary.main" }}>
             <TableRow>
               <TableCell
                 align="center"
                 colSpan={2}
-                sx={{
-                  fontWeight: "bold",
-                  color: "text.secondary",
-                }}
+                sx={{ color: "primary.contrastText", fontWeight: 600 }}
               >
                 UGC Approval Details
               </TableCell>
@@ -58,17 +37,13 @@ const UGCDetails: React.FC = () => {
                 key={index}
                 sx={{
                   "&:nth-of-type(even)": {
-                    backgroundColor: "primary.100",
+                    backgroundColor: "action.hover",
                   },
-                  "&:hover": {
-                    backgroundColor: "primary.200",
-                  },
-                  transition: "all 0.2s ease-in-out",
                 }}
               >
                 <TableCell
                   sx={{
-                    fontWeight: "bold",
+                    fontWeight: 600,
                     color: "text.primary",
                   }}
                 >
@@ -108,6 +83,17 @@ const style: IStyle = {
     display: "flex",
     flexDirection: "column",
     gap: "2rem",
+  },
+  tableWrapper: {
+    position: "relative",
+    display: "flex",
+    justifyContent: "center",
+  },
+  table: {
+    maxWidth: { xs: "100%", lg: "80%" },
+    borderRadius: "12px",
+    overflow: "hidden",
+    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
   },
   backgroundImage: {
     position: "absolute",
