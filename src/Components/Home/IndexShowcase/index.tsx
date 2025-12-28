@@ -13,7 +13,12 @@ const IndexShowcase: React.FC = () => {
         description={"Major International Journals Indexing Platform"}
       />
 
-      <Marquee gradient gradientWidth={80} pauseOnHover>
+      <Marquee
+        gradient
+        gradientWidth={80}
+        pauseOnHover
+        gradientColor="var(--mui-palette-background-default)"
+      >
         {IndexImages.slice(0, 6).map((img) => (
           <Box sx={style.card}>
             <Image
@@ -27,7 +32,13 @@ const IndexShowcase: React.FC = () => {
         ))}
       </Marquee>
 
-      <Marquee gradient direction="right" gradientWidth={80} pauseOnHover>
+      <Marquee
+        gradient
+        direction="right"
+        gradientWidth={80}
+        pauseOnHover
+        gradientColor="var(--mui-palette-background-default)"
+      >
         {IndexImages.slice(6).map((img) => (
           <Box sx={style.card}>
             <Image
@@ -65,12 +76,13 @@ const style: IStyle = {
     alignItems: "center",
     justifyContent: "center",
     py: 2,
-    borderRadius: "20px",
-    border: "1px solid #0000000d",
+    borderRadius: "16px",
     transition: "all 0.3s ease-in-out",
+    backgroundColor: "background.paper",
+    border: "1px solid",
+    borderColor: "divider",
     "&:hover": {
-      border: "1px solid ",
-      borderColor: "primary.main",
+      borderColor: "secondary.main",
     },
   },
 };

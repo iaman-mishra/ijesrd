@@ -89,7 +89,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
       }}
       sx={style.card}
     >
-      <Box sx={style.stepIcon}>{step.icon}</Box>
+      <Box sx={style.iconContainer}>{step.icon}</Box>
       <Box sx={style.cardContent}>
         <Typography variant="h4" sx={style.stepTitle}>
           {step.title}
@@ -150,29 +150,31 @@ const style: IStyle = {
   },
   card: {
     position: "relative",
-    // backgroundColor: "bg.main",
     borderRadius: "16px",
-    padding: "2rem 1.5rem",
+    border: "1px solid",
+    borderColor: "divider",
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
-    border: "1px solid rgba(0, 0, 0, 0.05)",
+    transition: "all 300ms ease-in-out",
+    backgroundColor: "background.paper",
+    padding: "2rem 1.5rem",
     textAlign: "center",
-    transition: "box-shadow 0.3s ease, border-color 0.3s ease",
     "&:hover": {
-      boxShadow: "0 20px 40px rgba(0, 0, 0, 0.1)",
+      boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
+      borderColor: "secondary.main",
     },
   },
-  stepIcon: {
+  iconContainer: {
     width: "70px",
     height: "70px",
-    backgroundColor: "secondary.100",
     borderRadius: "50%",
+    bgcolor: "secondary.light",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    margin: "0 auto 1.5rem",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+    marginBottom: "0.5rem",
     border: "2px solid",
     borderColor: "secondary.main",
+    marginX: "auto",
   },
   cardContent: {
     display: "flex",
