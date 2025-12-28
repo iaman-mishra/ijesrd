@@ -70,7 +70,11 @@ const style: IStyle = {
     gap: "2rem",
   },
   card: {
-    minWidth: "200px",
+    minWidth: {
+      xs:"150px",
+      md:"180px",
+      lg:"200px",
+    },
     marginX: 2,
     display: "flex",
     alignItems: "center",
