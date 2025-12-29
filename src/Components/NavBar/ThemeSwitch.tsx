@@ -2,7 +2,7 @@
 import React from "react";
 import { IconButton, Tooltip, useColorScheme } from "@mui/material";
 import { Sun, Moon, Monitor } from "lucide-react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from "framer-motion";
 
 type Mode = "light" | "dark" | "system";
 

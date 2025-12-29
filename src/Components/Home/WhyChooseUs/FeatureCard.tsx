@@ -1,4 +1,5 @@
-import { Box, CardContent, Typography } from "@mui/material";
+"use client";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -7,24 +8,19 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   description,
 }) => {
   return (
-    <Box sx={style.gridItem}>
-      <Box sx={style.card}>
-        <Box sx={style.iconContainer}>{icon}</Box>
-        <Typography variant="h4" sx={style.cardTitle} component={"h2"}>
-          {title}
-        </Typography>
-        <Typography variant="subtitle2" component={"p"}>
-          {description}
-        </Typography>
-      </Box>
+    <Box sx={style.card}>
+      <Box sx={style.iconContainer}>{icon}</Box>
+      <Typography variant="h4" sx={style.cardTitle} component={"h2"}>
+        {title}
+      </Typography>
+      <Typography variant="subtitle2" component={"p"}>
+        {description}
+      </Typography>
     </Box>
   );
 };
 
 const style: IStyle = {
-  gridItem: {
-    width: "100%",
-  },
   card: {
     display: "flex",
     alignItems: "center",
@@ -58,7 +54,6 @@ const style: IStyle = {
     marginBottom: "0.5rem",
     border: "2px solid",
     borderColor: "secondary.main",
-    
   },
   cardTitle: {
     fontWeight: "600",

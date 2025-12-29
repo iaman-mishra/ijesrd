@@ -1,7 +1,8 @@
 "use client";
 import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
-import { motion, useScroll, useTransform, MotionValue } from "motion/react";
+import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
+
 
 const AnimatedCardsWrapper: React.FC<AnimatedCardsWrapperProps> = ({
   steps,

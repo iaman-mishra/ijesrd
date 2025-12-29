@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import FeatureCard from "./FeatureCard";
 import { Box } from "@mui/material";
