@@ -27,6 +27,7 @@ declare global {
     icon: React.ReactNode;
     title: string;
     description: string;
+    index: number;
   }
 
   interface AnimatedCounterProps {

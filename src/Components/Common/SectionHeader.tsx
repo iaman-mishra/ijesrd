@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
+import { FadeUp } from "../Motion/AnimatedWrapper";
 
 const SectionHeader: React.FC<ISectionHeader> = ({
   title,
@@ -10,36 +11,41 @@ const SectionHeader: React.FC<ISectionHeader> = ({
 
   return (
     <Box sx={style.header}>
-      <Typography
-        variant="h1"
-        sx={{
-          ...style.title,
-          color: isSecondary
-            ? "secondary.contrastText"
-            : "text.primary",
-        }}
-      >
-        {title}
-      </Typography>
-      <Box
-        sx={{
-          ...style.underline,
-          bgcolor: isSecondary ? "secondary.main" : "primary.main",
-        }}
-      />
-      {description && (
+      <FadeUp>
         <Typography
-          variant="subtitle1"
+          variant="h1"
           sx={{
-            ...style.subtitle,
-            color: isSecondary
-              ? "secondary.contrastText"
-              : "primary.text.primary",
+            ...style.title,
+            color: isSecondary ? "secondary.contrastText" : "text.primary",
           }}
-          component="p"
         >
-          {description}
+          {title}
         </Typography>
+      </FadeUp>
+
+      <FadeUp>
+        <Box
+          sx={{
+            ...style.underline,
+            bgcolor: isSecondary ? "secondary.main" : "primary.main",
+          }}
+        />
+      </FadeUp>
+      {description && (
+        <FadeUp>
+          <Typography
+            variant="subtitle1"
+            sx={{
+              ...style.subtitle,
+              color: isSecondary
+                ? "secondary.contrastText"
+                : "primary.text.primary",
+            }}
+            component="p"
+          >
+            {description}
+          </Typography>
+        </FadeUp>
       )}
     </Box>
   );

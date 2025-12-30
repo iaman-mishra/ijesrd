@@ -1,4 +1,5 @@
 "use client";
+import { SpringUp } from "@/Components/Motion/AnimatedWrapper";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
@@ -6,17 +7,20 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   icon,
   title,
   description,
+  index,
 }) => {
   return (
-    <Box sx={style.card}>
-      <Box sx={style.iconContainer}>{icon}</Box>
-      <Typography variant="h4" sx={style.cardTitle} component={"h2"}>
-        {title}
-      </Typography>
-      <Typography variant="subtitle2" component={"p"}>
-        {description}
-      </Typography>
-    </Box>
+    <SpringUp delay={index * 0.2}>
+      <Box sx={style.card}>
+        <Box sx={style.iconContainer}>{icon}</Box>
+        <Typography variant="h4" sx={style.cardTitle} component={"h2"}>
+          {title}
+        </Typography>
+        <Typography variant="subtitle2" component={"p"}>
+          {description}
+        </Typography>
+      </Box>
+    </SpringUp>
   );
 };
 

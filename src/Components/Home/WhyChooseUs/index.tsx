@@ -22,6 +22,7 @@ const WhyChooseUs: React.FC = () => {
             icon={<feature.icon />}
             title={feature.title}
             description={feature.description}
+            index={index}
           />
         ))}
       </Box>
