@@ -3,41 +3,54 @@ import React from "react";
 import { Typography, Button, Stack } from "@mui/material";
 import { ArrowRight } from "lucide-react";
 import HeroLottie from "./HeroLottie";
+import { BlurIn, ScaleX, FadeUp, SpringUp } from "../../Motion/AnimatedWrapper";
 
 const Hero: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <Box sx={style.textContent}>
-        <Typography sx={style.title} variant="h1" component={"h1"}>
-          {"We Welcome Latest\n Research Articles in\n Field of Science"}
-        </Typography>
-        <Box sx={style.underline} />
-        <Typography
-          variant={"subtitle1"}
-          sx={style.description}
-          component={"p"}
-        >
-          Publish your groundbreaking research with us and join a community of
-          leading scientists, researchers, and academics. Our peer-reviewed
-        </Typography>
+        <BlurIn>
+          <Typography sx={style.title} variant="h1" component={"h1"}>
+            {"We Welcome Latest\n Research Articles in\n Field of Science"}
+          </Typography>
+        </BlurIn>
 
-        <Stack
-          direction={{ xs: "column", sm: "row" }}
-          spacing={2}
-          sx={style.buttonGroup}
-        >
-          <Button variant="contained" size="large" endIcon={<ArrowRight />}>
-            Submit Article
-          </Button>
-          <Button variant="outlined" size="large">
-            Browse Journals
-          </Button>
-        </Stack>
+        <ScaleX delay={0.2}>
+          <Box sx={style.underline} />
+        </ScaleX>
+
+        <FadeUp delay={0.4}>
+          <Typography
+            variant={"subtitle1"}
+            sx={style.description}
+            component={"p"}
+          >
+            Publish your groundbreaking research with us and join a community of
+            leading scientists, researchers, and academics. Our peer-reviewed
+          </Typography>
+        </FadeUp>
+
+        <FadeUp delay={0.6}>
+          <Stack
+            direction={{ xs: "column", sm: "row" }}
+            spacing={2}
+            sx={style.buttonGroup}
+          >
+            <Button variant="contained" size="large" endIcon={<ArrowRight />}>
+              Submit Article
+            </Button>
+            <Button variant="outlined" size="large">
+              Browse Journals
+            </Button>
+          </Stack>
+        </FadeUp>
       </Box>
 
-      <Box sx={style.lottie}>
-        <HeroLottie />
-      </Box>
+      <SpringUp delay={0.4}>
+        <Box sx={style.lottie}>
+          <HeroLottie />
+        </Box>
+      </SpringUp>
     </Box>
   );
 };
