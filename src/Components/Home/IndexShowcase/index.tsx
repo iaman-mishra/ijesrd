@@ -4,6 +4,7 @@ import SectionHeader from "@/Components/Common/SectionHeader";
 import { Box } from "@mui/material";
 import Marquee from "react-fast-marquee";
 import { IndexImages } from "@/constants/data";
+import { FadeUp } from "../../Motion/AnimatedWrapper";
 
 const IndexShowcase: React.FC = () => {
   return (
@@ -13,44 +14,48 @@ const IndexShowcase: React.FC = () => {
         description={"Major International Journals Indexing Platform"}
       />
 
-      <Marquee
-        gradient
-        gradientWidth={80}
-        pauseOnHover
-        gradientColor="var(--mui-palette-background-default)"
-      >
-        {IndexImages.slice(0, 6).map((img) => (
-          <Box sx={style.card}>
-            <Image
-              src={img.logo}
-              alt={img.name}
-              height={40}
-              width={80}
-              objectFit="cover"
-            />
-          </Box>
-        ))}
-      </Marquee>
+      <FadeUp delay={0.2}>
+        <Marquee
+          gradient
+          gradientWidth={80}
+          pauseOnHover
+          gradientColor="var(--mui-palette-background-default)"
+        >
+          {IndexImages.slice(0, 6).map((img) => (
+            <Box sx={style.card} key={img.name}>
+              <Image
+                src={img.logo}
+                alt={img.name}
+                height={40}
+                width={80}
+                objectFit="cover"
+              />
+            </Box>
+          ))}
+        </Marquee>
+      </FadeUp>
 
-      <Marquee
-        gradient
-        direction="right"
-        gradientWidth={80}
-        pauseOnHover
-        gradientColor="var(--mui-palette-background-default)"
-      >
-        {IndexImages.slice(6).map((img) => (
-          <Box sx={style.card}>
-            <Image
-              src={img.logo}
-              alt={img.name}
-              height={40}
-              width={80}
-              objectFit="cover"
-            />
-          </Box>
-        ))}
-      </Marquee>
+      <FadeUp delay={0.4}>
+        <Marquee
+          gradient
+          direction="right"
+          gradientWidth={80}
+          pauseOnHover
+          gradientColor="var(--mui-palette-background-default)"
+        >
+          {IndexImages.slice(6).map((img) => (
+            <Box sx={style.card} key={img.name}>
+              <Image
+                src={img.logo}
+                alt={img.name}
+                height={40}
+                width={80}
+                objectFit="cover"
+              />
+            </Box>
+          ))}
+        </Marquee>
+      </FadeUp>
     </Box>
   );
 };
@@ -71,9 +76,9 @@ const style: IStyle = {
   },
   card: {
     minWidth: {
-      xs:"150px",
-      md:"180px",
-      lg:"200px",
+      xs: "150px",
+      md: "180px",
+      lg: "200px",
     },
     marginX: 2,
     display: "flex",
@@ -85,6 +90,7 @@ const style: IStyle = {
     backgroundColor: "background.paper",
     border: "1px solid",
     borderColor: "divider",
+    cursor: "pointer",
     "&:hover": {
       borderColor: "secondary.main",
     },

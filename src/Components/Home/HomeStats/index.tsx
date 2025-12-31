@@ -3,6 +3,7 @@ import { Box, Typography } from "@mui/material";
 import SectionHeader from "@/Components/Common/SectionHeader";
 import { statsData } from "@/constants/data";
 import AnimatedCounter from "@/Components/Motion/AnimatedCounter";
+import { SpringUp } from "@/Components/Motion/AnimatedWrapper";
 const HomeStats: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
@@ -11,15 +12,17 @@ const HomeStats: React.FC = () => {
 
         <Box sx={style.grid}>
           {statsData.map((stat, index) => (
-            <Box key={index} sx={style.statCard}>
-              <Typography variant="h2" sx={style.number} component={"p"}>
-                <AnimatedCounter value={stat.number} />
-                {stat.icon}
-              </Typography>
-              <Typography variant="h5" sx={style.label} component={"p"}>
-                {stat.label}
-              </Typography>
-            </Box>
+            <SpringUp key={index} delay={index * 0.1}>
+              <Box sx={style.statCard}>
+                <Typography variant="h2" sx={style.number} component={"p"}>
+                  <AnimatedCounter value={stat.number} />
+                  {stat.icon}
+                </Typography>
+                <Typography variant="h5" sx={style.label} component={"p"}>
+                  {stat.label}
+                </Typography>
+              </Box>
+            </SpringUp>
           ))}
         </Box>
       </Box>
@@ -59,6 +62,7 @@ const style: IStyle = {
     gap: "2rem",
   },
   statCard: {
+    height: "100%",
     textAlign: "center",
     padding: {
       xs: "1.5rem",

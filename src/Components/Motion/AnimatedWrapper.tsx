@@ -1,6 +1,5 @@
 "use client";
 
-import { Box, BoxProps, SxProps, Theme } from "@mui/material";
 import { motion } from "framer-motion";
 import React from "react";
 
