@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import React from "react";
-import { FadeUp } from "../Motion/AnimatedWrapper";
+import { FadeUp, BlurIn, ScaleX } from "../Motion/AnimatedWrapper";
 
 const SectionHeader: React.FC<ISectionHeader> = ({
   title,
@@ -11,7 +11,7 @@ const SectionHeader: React.FC<ISectionHeader> = ({
 
   return (
     <Box sx={style.header}>
-      <FadeUp>
+      <BlurIn>
         <Typography
           variant="h1"
           sx={{
@@ -21,18 +21,18 @@ const SectionHeader: React.FC<ISectionHeader> = ({
         >
           {title}
         </Typography>
-      </FadeUp>
+      </BlurIn>
 
-      <FadeUp>
+      <ScaleX delay={0.2}>
         <Box
           sx={{
             ...style.underline,
             bgcolor: isSecondary ? "secondary.main" : "primary.main",
           }}
         />
-      </FadeUp>
+      </ScaleX>
       {description && (
-        <FadeUp>
+        <FadeUp delay={0.4}>
           <Typography
             variant="subtitle1"
             sx={{
@@ -54,6 +54,9 @@ const SectionHeader: React.FC<ISectionHeader> = ({
 const style: IStyle = {
   header: {
     textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
   },
   title: {
     whiteSpace: "pre-line",
@@ -63,7 +66,6 @@ const style: IStyle = {
     height: "5px",
     borderRadius: "1rem",
     marginX: "auto",
-    marginTop: "1rem",
   },
   subtitle: {
     maxWidth: "600px",

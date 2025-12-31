@@ -54,3 +54,48 @@ export const FadeUp: React.FC<AnimatedWrapperProps> = ({
     </motion.div>
   );
 };
+
+export const BlurIn: React.FC<AnimatedWrapperProps> = ({
+  children,
+  delay = 0,
+}) => (
+  <motion.div
+    initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+    whileInView={{
+      opacity: 1,
+      filter: "blur(0px)",
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        delay,
+      },
+    }}
+    viewport={{ once: true, amount: 0.2 }}
+  >
+    {children}
+  </motion.div>
+);
+
+export const ScaleX: React.FC<AnimatedWrapperProps> = ({
+  children,
+  delay = 0,
+}) => (
+  <motion.div
+    initial={{ scaleX: 0, opacity: 0 }}
+    whileInView={{
+      scaleX: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        delay,
+      },
+    }}
+    viewport={{ once: true, amount: 0.2 }}
+    style={{ transformOrigin: "center" }}
+  >
+    {children}
+  </motion.div>
+);
