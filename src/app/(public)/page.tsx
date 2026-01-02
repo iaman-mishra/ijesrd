@@ -11,6 +11,9 @@ const PublishingSteps = dynamic(
   () => import("@/Components/Home/PublishingSteps")
 );
 const IndexShowcase = dynamic(() => import("@/Components/Home/IndexShowcase"));
+const RecentPublications = dynamic(
+  () => import("@/Components/Home/RecentPublications")
+);
 
 const page: React.FC = () => {
   return (
@@ -24,6 +27,7 @@ const page: React.FC = () => {
       <PublishingSteps />
       <Divider />
       <IndexShowcase />
+      <RecentPublications />
     </Box>
   );
 };
