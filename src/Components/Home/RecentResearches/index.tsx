@@ -1,7 +1,7 @@
 import SectionHeader from "@/Components/Common/SectionHeader";
 import { SpringUp } from "@/Components/Motion/AnimatedWrapper";
 import { recentPapers } from "@/constants/data";
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import ResearchCard from "./ResearchCard";
 
 const RecentResearches: React.FC = () => {
@@ -20,6 +20,12 @@ const RecentResearches: React.FC = () => {
             <ResearchCard {...paper} />
           </SpringUp>
         ))}
+      </Box>
+
+      <Box sx={style.buttonContainer}>
+        <Button variant="text" size="medium">
+          View All Articles
+        </Button>
       </Box>
     </Box>
   );
@@ -51,6 +57,10 @@ const style: IStyle = {
       sm: "repeat(2, 1fr)",
     },
     gap: "1.5rem",
+  },
+  buttonContainer: {
+    display: "flex",
+    justifyContent: "center",
   },
 };
 
