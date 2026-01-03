@@ -36,7 +36,7 @@ const style: IStyle = {
     border: "1px solid",
     borderColor: "divider",
     boxShadow: "0 10px 30px rgba(0, 0, 0, 0.05)",
-    transition: "all 300ms ease-in-out",
+    transition: "all 0.3s ease",
     backgroundColor: "background.paper",
     padding: {
       xs: "1.5rem",

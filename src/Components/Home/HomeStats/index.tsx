@@ -12,7 +12,7 @@ const HomeStats: React.FC = () => {
 
         <Box sx={style.grid}>
           {statsData.map((stat, index) => (
-            <SpringUp key={index} delay={index * 0.1}>
+            <SpringUp key={index} delay={index * 0.2}>
               <Box sx={style.statCard}>
                 <Typography variant="h2" sx={style.number} component={"p"}>
                   <AnimatedCounter value={stat.number} />

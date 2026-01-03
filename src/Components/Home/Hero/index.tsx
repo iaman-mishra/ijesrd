@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
         </FadeUp>
       </Box>
 
-      <SpringUp delay={0.4}>
+      <SpringUp delay={0.2}>
         <Box sx={style.lottie}>
           <HeroLottie />
         </Box>

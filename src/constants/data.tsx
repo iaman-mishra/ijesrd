@@ -174,3 +174,42 @@ export const IndexImages = [
     logo: SemanticScholar,
   },
 ];
+
+export const recentPapers = [
+  {
+    title: "AI-Based Disease Prediction Using Deep Learning",
+    description:
+      "This paper explores deep learning models for early disease detection using patient health records and imaging data.",
+    category: "Artificial Intelligence",
+    date: "12 Aug 2025",
+    authors: ["Dr. Amit Sharma", "Dr. Neha Verma"],
+    slug: "ai-disease-prediction",
+  },
+  {
+    title: "Renewable Energy Optimization in Smart Grids",
+    description:
+      "An analytical study on optimizing renewable energy distribution in smart grid systems using IoT sensors.",
+    category: "Energy Systems",
+    date: "05 Aug 2025",
+    authors: ["Prof. Rahul Mehta"],
+    slug: "renewable-energy-smart-grids",
+  },
+  {
+    title: "Blockchain Applications in Academic Publishing",
+    description:
+      "The research highlights how blockchain can improve transparency and trust in scholarly publishing.",
+    category: "Blockchain",
+    date: "28 Jul 2025",
+    authors: ["Dr. Sneha Kulkarni", "Dr. Arjun Patel", "Dr. R. Singh"],
+    slug: "blockchain-academic-publishing",
+  },
+  {
+    title: "Cybersecurity Challenges in Cloud Computing",
+    description:
+      "This study discusses emerging cybersecurity threats in cloud infrastructures and mitigation strategies.",
+    category: "Cybersecurity",
+    date: "20 Jul 2025",
+    authors: ["Dr. Kunal Joshi"],
+    slug: "cloud-cybersecurity-challenges",
+  },
+];
