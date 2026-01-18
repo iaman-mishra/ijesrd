@@ -30,7 +30,7 @@ const HomeStats: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     bgcolor: "primary.main",
     width: "100%",
@@ -92,6 +92,6 @@ const style: IStyle = {
   label: {
     fontWeight: "400",
   },
-};
+} satisfies IStyle;
 
 export default HomeStats;

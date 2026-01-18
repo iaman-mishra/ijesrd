@@ -29,7 +29,7 @@ const Header: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     paddingX: "15px",
     marginX: "auto",
@@ -47,6 +47,6 @@ const style: IStyle = {
     justifyContent: "center",
     gap: 1,
   },
-};
+} satisfies IStyle;
 
 export default Header;

@@ -51,7 +51,7 @@ const SectionHeader: React.FC<ISectionHeader> = ({
   );
 };
 
-const style: IStyle = {
+const style = {
   header: {
     textAlign: "center",
     display: "flex",
@@ -71,6 +71,6 @@ const style: IStyle = {
     maxWidth: "600px",
     marginX: "auto",
   },
-};
+} satisfies IStyle;
 
 export default SectionHeader;

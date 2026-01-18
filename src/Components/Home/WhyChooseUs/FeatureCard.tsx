@@ -24,7 +24,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   );
 };
 
-const style: IStyle = {
+const style = {
   card: {
     display: "flex",
     alignItems: "center",
@@ -62,6 +62,6 @@ const style: IStyle = {
   cardTitle: {
     fontWeight: "600",
   },
-};
+} satisfies IStyle;
 
 export default FeatureCard;

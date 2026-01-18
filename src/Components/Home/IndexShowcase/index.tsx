@@ -60,7 +60,7 @@ const IndexShowcase: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     width: "100%",
     paddingX: "15px",
@@ -95,6 +95,6 @@ const style: IStyle = {
       borderColor: "secondary.main",
     },
   },
-};
+} satisfies IStyle;
 
 export default IndexShowcase;

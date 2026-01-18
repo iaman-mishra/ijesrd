@@ -12,6 +12,7 @@
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+    "@hookform/resolvers": "^5.2.2",
     "@mui/material": "^7.3.6",
     "@mui/material-nextjs": "^7.3.6",
     "framer-motion": "^12.23.26",
@@ -21,7 +22,9 @@
     "next": "^16.1.0",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "react-fast-marquee": "^1.6.5"
+    "react-fast-marquee": "^1.6.5",
+    "react-hook-form": "^7.71.1",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",

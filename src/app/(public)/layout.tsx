@@ -1,8 +1,9 @@
-import { Box, Divider } from "@mui/material";
-import React, { ReactNode } from "react";
+import { Box } from "@mui/material";
+import { ReactNode } from "react";
 import { LenisProvider } from "./LenisProvider";
 import Header from "@/Components/Header";
 import NavBar from "@/Components/NavBar";
+import Footer from "@/Components/Footer";
 
 const layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -11,6 +12,7 @@ const layout = ({ children }: { children: ReactNode }) => {
         <Header />
         <NavBar />
         {children}
+        <Footer />
       </Box>
     </LenisProvider>
   );
@@ -18,7 +20,7 @@ const layout = ({ children }: { children: ReactNode }) => {
 
 export default layout;
 
-const style: IStyle = {
+const style = {
   layout: {
     width: "100%",
     maxWidth: "1270px",
@@ -26,4 +28,4 @@ const style: IStyle = {
     marginX: "auto",
     bgcolor: "background.default",
   },
-};
+} satisfies IStyle;

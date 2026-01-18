@@ -151,9 +151,9 @@ const Theme = createTheme({
           textTransform: "none",
           fontWeight: 600,
           transition: "all 0.2s ease",
-          "&:hover": {
-            transform: "translateY(-2px)",
-          },
+          // "&:hover": {
+          //   transform: "translateY(-2px)",
+          // },
         },
       },
     },

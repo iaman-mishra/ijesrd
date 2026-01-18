@@ -3,7 +3,6 @@ import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
-
 const AnimatedCardsWrapper: React.FC<AnimatedCardsWrapperProps> = ({
   steps,
   header,
@@ -77,7 +76,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   const filter = useTransform(
     scrollYProgress,
     [start, end],
-    ["blur(10px)", "blur(0px)"]
+    ["blur(10px)", "blur(0px)"],
   );
 
   return (
@@ -104,7 +103,7 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     width: "100%",
     paddingX: "15px",
@@ -196,6 +195,6 @@ const style: IStyle = {
     fontWeight: "500",
     boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
   },
-};
+} satisfies IStyle;
 
 export default AnimatedCardsWrapper;

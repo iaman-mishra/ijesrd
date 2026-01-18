@@ -19,7 +19,7 @@ const HeroLottie: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   skelton: {
     width: "100%",
     height: "100%",
@@ -30,6 +30,6 @@ const style: IStyle = {
       lg: "auto",
     },
   },
-};
+} satisfies IStyle;
 
 export default HeroLottie;

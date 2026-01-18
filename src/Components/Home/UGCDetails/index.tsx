@@ -16,7 +16,7 @@ const UGCDetails: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <SectionHeader title={"UGC Approved Journal"} />
-      
+
       <Box sx={style.tableWrapper}>
         <Table sx={style.table}>
           <TableHead sx={{ backgroundColor: "primary.main" }}>
@@ -65,7 +65,7 @@ const UGCDetails: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     width: "100%",
     paddingX: "15px",
@@ -103,6 +103,6 @@ const style: IStyle = {
     pointerEvents: "none",
     opacity: 0.08,
   },
-};
+} satisfies IStyle;
 
 export default UGCDetails;

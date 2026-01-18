@@ -53,7 +53,7 @@ const ResearchCard: React.FC<ResearchCardProps> = ({
 
 export default ResearchCard;
 
-const style: IStyle = {
+const style = {
   card: {
     backgroundColor: "background.paper",
     borderRadius: "16px",
@@ -111,4 +111,4 @@ const style: IStyle = {
   authorName: {
     fontWeight: 500,
   },
-};
+} satisfies IStyle;

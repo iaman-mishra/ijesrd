@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     display: "flex",
     flexDirection: {
@@ -138,6 +138,6 @@ const style: IStyle = {
   lottie: {
     flex: 1,
   },
-};
+} satisfies IStyle;
 
 export default Hero;

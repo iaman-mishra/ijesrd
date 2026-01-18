@@ -31,7 +31,7 @@ const RecentResearches: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     width: "100%",
     paddingX: "15px",
@@ -62,6 +62,6 @@ const style: IStyle = {
     display: "flex",
     justifyContent: "center",
   },
-};
+} satisfies IStyle;
 
 export default RecentResearches;

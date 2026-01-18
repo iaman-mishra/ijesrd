@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button,
-  Divider,
-  IconButton,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 import { Search } from "lucide-react";
 import React from "react";
 import NavigationTab from "../Common/NavigationTab";
@@ -51,7 +45,7 @@ const NavBar: React.FC = () => {
   );
 };
 
-const style: IStyle = {
+const style = {
   section: {
     position: "sticky",
     top: 0,
@@ -110,6 +104,6 @@ const style: IStyle = {
       },
     },
   },
-};
+} satisfies IStyle;
 
 export default NavBar;

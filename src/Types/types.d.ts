@@ -15,9 +15,7 @@ declare global {
     showIcon?: boolean;
   }
 
-  interface IStyle {
-    [key: string]: SxProps<Theme>;
-  }
+  type IStyle = Record<string, SxProps<Theme>>;
 
   interface INavDrawerButton {
     routes: IRoute[];
