@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
 import { Box } from "@mui/material";
-import { CircleChevronLeft } from "lucide-react";
+import { ChevronLeft, CircleChevronLeft, Menu } from "lucide-react";
 import NavigationTab from "../Common/NavigationTab";
 
 const NavDrawerButton: React.FC<INavDrawerButton> = ({ routes }) => {
@@ -23,7 +23,7 @@ const NavDrawerButton: React.FC<INavDrawerButton> = ({ routes }) => {
         }}
         onClick={() => setDrawerOpen(true)}
       >
-        <CircleChevronLeft />
+        <Menu />
       </IconButton>
       <Drawer open={drawerOpen} onClose={() => setDrawerOpen(false)}>
         <Box sx={{ minWidth: "250px", padding: "1rem" }}>
@@ -32,7 +32,7 @@ const NavDrawerButton: React.FC<INavDrawerButton> = ({ routes }) => {
               aria-label="close navigation drawer"
               onClick={() => setDrawerOpen(false)}
             >
-              <CircleChevronLeft />
+              <ChevronLeft />
             </IconButton>
           </Box>
           <NavigationTab

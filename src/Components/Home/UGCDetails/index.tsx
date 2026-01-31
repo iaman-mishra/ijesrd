@@ -17,50 +17,42 @@ const UGCDetails: React.FC = () => {
     <Box component={"section"} sx={style.section}>
       <SectionHeader title={"UGC Approved Journal"} />
 
-      <Box sx={style.tableWrapper}>
-        <Table sx={style.table}>
-          <TableHead sx={{ backgroundColor: "primary.main" }}>
-            <TableRow>
-              <TableCell
-                align="center"
-                colSpan={2}
-                sx={{ color: "primary.contrastText", fontWeight: 600 }}
-              >
-                UGC Approval Details
-              </TableCell>
-            </TableRow>
-          </TableHead>
+      <Table sx={style.table}>
+        <TableHead sx={{ backgroundColor: "primary.main" }}>
+          <TableRow>
+            <TableCell
+              align="center"
+              colSpan={2}
+              sx={{ color: "primary.contrastText", fontWeight: 600 }}
+            >
+              UGC Approval Details
+            </TableCell>
+          </TableRow>
+        </TableHead>
 
-          <TableBody>
-            {ugcApprovalDetails.map((row, index) => (
-              <TableRow
-                key={index}
+        <TableBody>
+          {ugcApprovalDetails.map((row, index) => (
+            <TableRow
+              key={index}
+              sx={{
+                "&:nth-of-type(even)": {
+                  backgroundColor: "action.hover",
+                },
+              }}
+            >
+              <TableCell
                 sx={{
-                  "&:nth-of-type(even)": {
-                    backgroundColor: "action.hover",
-                  },
+                  fontWeight: 600,
+                  color: "text.primary",
                 }}
               >
-                <TableCell
-                  sx={{
-                    fontWeight: 600,
-                    color: "text.primary",
-                  }}
-                >
-                  {row.label}
-                </TableCell>
-                <TableCell align="right">{row.value}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-
-        <Image
-          src={ugcImage}
-          alt="UGC Approval"
-          style={style.backgroundImage as CSSProperties}
-        />
-      </Box>
+                {row.label}
+              </TableCell>
+              <TableCell align="right">{row.value}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
     </Box>
   );
 };
@@ -84,24 +76,12 @@ const style = {
     flexDirection: "column",
     gap: "2rem",
   },
-  tableWrapper: {
-    position: "relative",
-    display: "flex",
-    justifyContent: "center",
-  },
   table: {
     maxWidth: { xs: "100%", lg: "80%" },
     borderRadius: "12px",
     overflow: "hidden",
     boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
-  },
-  backgroundImage: {
-    position: "absolute",
-    top: "60%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    pointerEvents: "none",
-    opacity: 0.08,
+    margin: "0 auto",
   },
 } satisfies IStyle;
 

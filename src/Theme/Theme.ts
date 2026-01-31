@@ -36,7 +36,6 @@ const Theme = createTheme({
         background: {
           paper: "#fff",
           default: "#fff",
-          body: "#fff",
         },
       },
     },
@@ -57,7 +56,6 @@ const Theme = createTheme({
         background: {
           paper: "#212121",
           default: "#121212",
-          body: "#000",
         },
       },
     },
@@ -137,7 +135,7 @@ const Theme = createTheme({
         body: {
           margin: 0,
           padding: 0,
-          backgroundColor: "var(--mui-palette-background-body)",
+          backgroundColor: "var(--mui-palette-background-default)",
         },
       },
     },

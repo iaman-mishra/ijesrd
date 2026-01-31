@@ -31,12 +31,11 @@ const Header: React.FC = () => {
 
 const style = {
   section: {
-    paddingX: "15px",
-    marginX: "auto",
+    display: { xs: "none", md: "flex" },
     width: "100%",
     maxWidth: "1140px",
-    display: { xs: "none", md: "flex" },
-    paddingY: "30px",
+    padding: "30px 15px",
+    margin: "0 auto",
   },
   containerLeft: { flex: 1, display: "flex", gap: 2 },
   containerRight: {

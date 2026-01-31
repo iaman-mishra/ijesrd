@@ -20,6 +20,7 @@ const IndexShowcase: React.FC = () => {
           gradientWidth={80}
           pauseOnHover
           gradientColor="var(--mui-palette-background-default)"
+          autoFill={true}
         >
           {IndexImages.slice(0, 6).map((img) => (
             <Box sx={style.card} key={img.name}>
@@ -42,6 +43,7 @@ const IndexShowcase: React.FC = () => {
           gradientWidth={80}
           pauseOnHover
           gradientColor="var(--mui-palette-background-default)"
+          autoFill={true}
         >
           {IndexImages.slice(6).map((img) => (
             <Box sx={style.card} key={img.name}>

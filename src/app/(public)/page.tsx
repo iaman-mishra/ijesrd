@@ -8,11 +8,11 @@ const WhyChooseUs = dynamic(() => import("@/Components/Home/WhyChooseUs"));
 const HomeStats = dynamic(() => import("@/Components/Home/HomeStats"));
 const UGCDetails = dynamic(() => import("@/Components/Home/UGCDetails"));
 const PublishingSteps = dynamic(
-  () => import("@/Components/Home/PublishingSteps")
+  () => import("@/Components/Home/PublishingSteps"),
 );
 const IndexShowcase = dynamic(() => import("@/Components/Home/IndexShowcase"));
 const RecentResearches = dynamic(
-  () => import("@/Components/Home/RecentResearches")
+  () => import("@/Components/Home/RecentResearches"),
 );
 
 const page: React.FC = () => {

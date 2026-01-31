@@ -54,14 +54,13 @@ const style = {
     width: "100%",
   },
   container: {
-    paddingX: "15px",
-    marginX: "auto",
     width: "100%",
     maxWidth: "1140px",
-    paddingY: "1rem",
     display: "flex",
     gap: 5,
     alignItems: "center",
+    padding: "1rem 15px",
+    margin: "0 auto",
   },
   left: { flex: 1, display: "flex", alignItems: "center" },
   center: {

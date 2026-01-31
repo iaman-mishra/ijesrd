@@ -1,17 +1,17 @@
-import { Box, Button, Divider, InputBase, Typography } from "@mui/material";
-import { Mail, Send } from "lucide-react";
+import { Box, Divider } from "@mui/material";
 import React from "react";
-import { FadeUp } from "../Motion/AnimatedWrapper";
 import NewsLetter from "./NewsLetter";
+import FooterLinks from "./FooterLinks";
+import FooterBottom from "./FooterBottom";
 
 const Footer: React.FC = () => {
   return (
     <>
       <Divider />
       <Box component={"footer"} sx={style.section}>
-        <FadeUp>
-          <NewsLetter />
-        </FadeUp>
+        <NewsLetter />
+        <FooterLinks />
+        <FooterBottom />
       </Box>
     </>
   );

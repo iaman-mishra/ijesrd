@@ -74,13 +74,9 @@ const style = {
       md: "60px",
       xl: "80px",
     },
-    maxWidth: {
-      md: "720px",
-      lg: "992px",
-      xl: "1140px",
-    },
+    maxWidth: "1140px",
     paddingX: "15px",
-    marginX: "auto",
+    margin: "0 auto",
     minHeight: {
       xs: "auto",
       lg: "600px",
