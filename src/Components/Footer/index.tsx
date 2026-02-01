@@ -1,4 +1,4 @@
-import { Box, Divider } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React from "react";
 import NewsLetter from "./NewsLetter";
 import FooterLinks from "./FooterLinks";
@@ -6,14 +6,13 @@ import FooterBottom from "./FooterBottom";
 
 const Footer: React.FC = () => {
   return (
-    <>
-      <Divider />
-      <Box component={"footer"} sx={style.section}>
+    <Box component={"footer"} sx={style.section}>
+      <Box sx={style.container}>
         <NewsLetter />
         <FooterLinks />
         <FooterBottom />
       </Box>
-    </>
+    </Box>
   );
 };
 
@@ -22,12 +21,18 @@ export default Footer;
 const style = {
   section: {
     width: "100%",
-    paddingX: "15px",
-    maxWidth: "1140px",
-    marginX: "auto",
+    backgroundColor: "background.default",
+    pt: "3rem",
+    borderTop: "1px solid",
+    borderColor: "divider",
+    alignItems: "center",
+  },
+  container: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "background.default",
-    paddingY: "4rem",
+    gap: "3rem",
+    maxWidth: "1140px",
+    margin: "0 auto",
+    px: "15px",
   },
 } satisfies IStyle;

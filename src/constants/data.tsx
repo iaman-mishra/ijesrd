@@ -17,8 +17,11 @@ import {
   ChartNoAxesCombined,
   CreditCard,
   Gauge,
+  Mail,
+  Map,
   NotebookText,
   Paperclip,
+  Phone,
   ShieldCheck,
   Star,
   Users,
@@ -211,5 +214,47 @@ export const recentPapers = [
     date: "20 Jul 2025",
     authors: ["Dr. Kunal Joshi"],
     slug: "cloud-cybersecurity-challenges",
+  },
+];
+
+export const footerUrls = [
+  {
+    title: "Quick Links",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "About Us", href: "/about" },
+      { label: "Editorial Board", href: "/editorial-board" },
+      { label: "Archives", href: "/archives" },
+    ],
+  },
+  {
+    title: "For Authors",
+    links: [
+      { label: "Submit Paper", href: "/submit-paper" },
+      { label: "Author Guidelines", href: "/author-guidelines" },
+      { label: "Publication Charges", href: "/publication-charges" },
+      { label: "Indexing", href: "/indexing" },
+    ],
+  },
+];
+
+export const contactInfo = [
+  {
+    icon: Map,
+    label: "Address",
+    value: "Rithala, Rohini, New Delhi, Delhi, 110085, India",
+    url: "#",
+  },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "editor.ijesrd@gmail.com",
+    url: "mailto:editor.ijesrd@gmail.com",
+  },
+  {
+    icon: Phone,
+    label: "Phone",
+    value: "+91 1234567890",
+    url: "tel:+911234567890",
   },
 ];
