@@ -16,7 +16,9 @@ import {
   Brain,
   ChartNoAxesCombined,
   CreditCard,
+  FacebookIcon,
   Gauge,
+  LinkedinIcon,
   Mail,
   Map,
   NotebookText,
@@ -24,6 +26,7 @@ import {
   Phone,
   ShieldCheck,
   Star,
+  TwitterIcon,
   Users,
 } from "lucide-react";
 
@@ -257,4 +260,27 @@ export const contactInfo = [
     value: "+91 1234567890",
     url: "tel:+911234567890",
   },
+];
+
+export const socialLinks = [
+  {
+    label: "Facebook",
+    icon: FacebookIcon,
+    href: "#",
+  },
+  {
+    label: "Twitter",
+    icon: TwitterIcon,
+    href: "#",
+  },
+  {
+    label: "Linkedin",
+    icon: LinkedinIcon,
+    href: "#",
+  },
+];
+
+export const footerBottomLinks = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/terms-conditions" },
 ];

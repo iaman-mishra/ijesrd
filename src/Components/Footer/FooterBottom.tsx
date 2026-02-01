@@ -1,67 +1,65 @@
-import { Box, IconButton, Link, Stack, Typography } from "@mui/material";
-import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import { footerBottomLinks, socialLinks } from "@/constants/data";
+import { Box, IconButton, Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import React from "react";
 
 const FooterBottom: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Box sx={style.wrapper}>
-      <Stack
-        direction={{ xs: "column-reverse", md: "row" }}
-        justifyContent="space-between"
-        alignItems="center"
-        spacing={2}
-      >
-        <Typography variant="body2" sx={{ color: "text.secondary" }}>
-          © {currentYear} IJESRD. All rights reserved.
-        </Typography>
+    <Box sx={style.section}>
+      <Typography variant="body2" sx={{ color: "text.secondary" }}>
+        © {currentYear} IJESRD. All rights reserved.
+      </Typography>
 
-        <Stack direction="row" spacing={3}>
-          <Link href="#" underline="hover" sx={style.bottomLink}>
-            Privacy Policy
+      <Stack direction="row" spacing={3}>
+        {footerBottomLinks.map((item) => (
+          <Link
+            key={item.label}
+            href={item.href}
+            style={{ textDecoration: "none" }}
+          >
+            <Typography sx={style.bottomLink}>{item.label}</Typography>
           </Link>
-          <Link href="#" underline="hover" sx={style.bottomLink}>
-            Terms & Conditions
-          </Link>
-        </Stack>
+        ))}
+      </Stack>
 
-        <Stack direction="row" spacing={1}>
-          {[
-            { Icon: Facebook, href: "#" },
-            { Icon: Twitter, href: "#" },
-            { Icon: Linkedin, href: "#" },
-            { Icon: Instagram, href: "#" },
-          ].map(({ Icon, href }, index) => (
-            <IconButton
-              key={index}
-              href={href}
-              sx={style.socialIcon}
-              component={Link}
-            >
-              <Icon size={18} />
-            </IconButton>
-          ))}
-        </Stack>
+      <Stack direction="row" spacing={1}>
+        {socialLinks.map((item) => (
+          <IconButton
+            key={item.label}
+            sx={style.socialIcon}
+            component={"a"}
+            href={item.href}
+            target="_blank"
+          >
+            <item.icon size={18} />
+          </IconButton>
+        ))}
       </Stack>
     </Box>
   );
 };
 
 const style = {
-  wrapper: {
+  section: {
     paddingY: "1.5rem",
     borderTop: "1px solid",
     borderColor: "divider",
-    marginTop: "2rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    flexDirection: { xs: "column-reverse", md: "row" },
+    gap: "1rem",
   },
   bottomLink: {
-    color: "text.secondary",
+    color: "var(--mui-palette-text-secondary)",
+    textDecoration: "none",
     fontSize: "0.875rem",
     transition: "color 0.2s",
     fontWeight: 500,
     "&:hover": {
-      color: "primary.main",
+      color: "var(--mui-palette-primary-main)",
     },
   },
   socialIcon: {
@@ -70,7 +68,7 @@ const style = {
     border: "1px solid",
     borderColor: "divider",
     "&:hover": {
-      color: "#fff",
+      color: "var(--mui-palette-primary-contrastText)",
       background: "var(--mui-palette-primary-main)",
       borderColor: "var(--mui-palette-primary-main)",
       transform: "translateY(-3px)",

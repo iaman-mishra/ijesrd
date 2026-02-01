@@ -1,13 +1,13 @@
 import { contactInfo, footerUrls } from "@/constants/data";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography, Grid } from "@mui/material";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 const FooterLinks: React.FC = () => {
   return (
-    <Box sx={style.container}>
-      <Box>
+    <Grid container spacing={"3rem"}>
+      <Grid size={{ xs: 12, lg: 4 }}>
         <Stack spacing={3}>
           <Box>
             <Typography sx={style.title}>IJESRD</Typography>
@@ -21,10 +21,10 @@ const FooterLinks: React.FC = () => {
             publishing cutting-edge research.
           </Typography>
         </Stack>
-      </Box>
+      </Grid>
 
       {footerUrls.map((item) => (
-        <Box key={item.title}>
+        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 2.5 }} key={item.title}>
           <Typography sx={style.ColumnHeading}>{item.title}</Typography>
           <Stack spacing={1.5}>
             {item.links.map((url) => (
@@ -40,10 +40,10 @@ const FooterLinks: React.FC = () => {
               </Link>
             ))}
           </Stack>
-        </Box>
+        </Grid>
       ))}
 
-      <Box>
+      <Grid size={{ xs: 12, md: 4, lg: 3 }}>
         <Typography sx={style.ColumnHeading}>Contact Us</Typography>
         <Stack spacing={2.5}>
           {contactInfo.map((item) => (
@@ -59,17 +59,12 @@ const FooterLinks: React.FC = () => {
             </Link>
           ))}
         </Stack>
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
 
 const style = {
-  container: {
-    display: "grid",
-    gridTemplateColumns: { xs: "1fr", lg: "2fr 1fr 1fr 1.5fr" },
-    gap: { xs: "3rem", lg: "3rem" },
-  },
   title: {
     fontWeight: "800",
     color: "primary.main",

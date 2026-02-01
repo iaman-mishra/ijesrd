@@ -3,6 +3,7 @@ import FacebookIcon from "@/assets/svg/facebook.svg";
 import LinkedinIcon from "@/assets/svg/linkedin.svg";
 import TwitterIcon from "@/assets/svg/twitter.svg";
 import React from "react";
+import { socialLinks } from "@/constants/data";
 const Header: React.FC = () => {
   return (
     <Box component={"header"} sx={style.section}>
@@ -20,9 +21,9 @@ const Header: React.FC = () => {
       <Box sx={style.containerRight}>
         <Typography>ISSN: 2456-9283</Typography>
         <Box sx={{ display: "flex", gap: 2 }}>
-          <LinkedinIcon />
-          <TwitterIcon />
-          <FacebookIcon />
+          {socialLinks.map((item) => (
+            <item.icon key={item.label} />
+          ))}
         </Box>
       </Box>
     </Box>
