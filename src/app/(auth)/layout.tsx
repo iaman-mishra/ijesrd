@@ -27,7 +27,7 @@ const style = {
     minHeight: "100vh",
     bgcolor: "background.default",
     overflow: "hidden",
-    padding: 6,
+    padding: { xs: 3, sm: 4 },
   },
   left: {
     flex: 1,
@@ -36,12 +36,14 @@ const style = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    borderRadius: 8,
+    color: "primary.contrastText",
   },
   right: {
-    flex: { xs: 1, md: "0 0 550px" },
+    flex: { xs: 1, lg: "0 0 550px" },
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    p: { xs: 3, sm: 6, md: 8 },
+    padding: { md: 6 },
   },
 } satisfies IStyle;
