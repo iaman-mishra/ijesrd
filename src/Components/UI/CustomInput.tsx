@@ -15,6 +15,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   return (
     <TextField
       {...props}
+      fullWidth
       sx={style.field}
       slotProps={{
         input: {
@@ -31,7 +32,6 @@ const CustomInput: React.FC<CustomInputProps> = ({
           ) : undefined,
         },
       }}
-      fullWidth
     />
   );
 };

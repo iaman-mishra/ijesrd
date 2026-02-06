@@ -139,19 +139,19 @@ const Theme = createTheme({
         },
       },
     },
-    // MuiButton: {
-    //   defaultProps: {
-    //     disableElevation: true,
-    //   },
-    //   styleOverrides: {
-    //     root: {
-    //       borderRadius: "0.5rem",
-    //       textTransform: "none",
-    //       fontWeight: 600,
-    //       transition: "all 0.2s ease",
-    //     },
-    //   },
-    // },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          fontWeight: 600,
+          transition: "all 0.2s ease",
+          borderRadius: "1.5rem",
+        },
+        sizeLarge: {
+          minHeight: 48,
+        },
+      },
+    },
   },
 });
 
