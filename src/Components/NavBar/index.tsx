@@ -5,6 +5,8 @@ import NavigationTab from "../Common/NavigationTab";
 import NavDrawerButton from "./NavDrawerButton";
 import { routes } from "@/constants/routes";
 import ThemeSwitch from "./ThemeSwitch";
+import Link from "next/link";
+import LinkButton from "../UI/LinkButton";
 
 const NavBar: React.FC = () => {
   return (
@@ -32,12 +34,14 @@ const NavBar: React.FC = () => {
           <Box sx={{ display: { xs: "none", md: "inline-flex" } }}>
             <ThemeSwitch />
           </Box>
-          <Button
+
+          <LinkButton
+            href="/login"
             variant="contained"
             sx={{ display: { xs: "none", md: "inline-flex" } }}
           >
             Login
-          </Button>
+          </LinkButton>
         </Box>
       </Box>
       <Divider />

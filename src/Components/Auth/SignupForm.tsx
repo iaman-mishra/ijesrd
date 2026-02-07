@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Checkbox,
   FormControlLabel,
   Stack,
@@ -8,11 +9,10 @@ import {
 import React from "react";
 import CustomInput from "../UI/CustomInput";
 import PasswordInput from "../UI/PasswordInput";
-import CustomButton from "../UI/CustomButton";
 
 const SignupForm: React.FC = () => {
   return (
-    <Stack spacing={4}>
+    <Stack spacing={4} component={"form"}>
       <Box>
         <Typography variant="h3" fontWeight="700" color="primary">
           Create Account
@@ -34,8 +34,7 @@ const SignupForm: React.FC = () => {
           label="I agree to the terms and conditions"
         />
       </Stack>
-
-      <CustomButton type="submit">Login</CustomButton>
+      <Button type="submit">Login</Button>
     </Stack>
   );
 };

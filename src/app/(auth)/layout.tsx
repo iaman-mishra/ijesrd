@@ -1,7 +1,5 @@
-"use client";
 import React from "react";
-import { Box, Typography, Stack, useTheme, useMediaQuery } from "@mui/material";
-import { motion } from "framer-motion";
+import { Box, Typography } from "@mui/material";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (

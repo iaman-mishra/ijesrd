@@ -1,8 +1,7 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import CustomInput from "../UI/CustomInput";
 import PasswordInput from "../UI/PasswordInput";
-import CustomButton from "../UI/CustomButton";
 
 const LoginForm: React.FC = () => {
   return (
@@ -19,7 +18,7 @@ const LoginForm: React.FC = () => {
         <CustomInput required type="email" label="Email" />
         <PasswordInput label="Password" required />
       </Stack>
-      <CustomButton type="submit">Login</CustomButton>
+      <Button type="submit">Login</Button>
     </Stack>
   );
 };
