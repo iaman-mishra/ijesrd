@@ -31,7 +31,7 @@ const FooterLinks: React.FC = () => {
               <Link
                 key={url.label}
                 href={url.href}
-                style={{ textDecoration: "none" }}
+                style={{ textDecoration: "none", width: "fit-content" }}
               >
                 <Typography sx={style.link}>
                   <ArrowRight size={16} className="link-arrow-icon" />
@@ -98,7 +98,6 @@ const style = {
     },
   },
   link: {
-    width: "fit-content",
     color: "text.secondary",
     display: "flex",
     alignItems: "center",
