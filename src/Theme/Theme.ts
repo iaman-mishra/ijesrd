@@ -143,12 +143,14 @@ const Theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: "none",
-          fontWeight: 600,
           transition: "all 0.2s ease",
-          borderRadius: "1.5rem",
+          borderRadius: "12px",
         },
         sizeLarge: {
           minHeight: 48,
+          paddingY: 1.5,
+          fontSize: "1rem",
+          fontWeight: 600,
         },
       },
     },

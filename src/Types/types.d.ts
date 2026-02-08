@@ -55,6 +55,9 @@ declare global {
     steps: Step[];
     header: React.ReactNode;
   }
+
+  type SocialProvider = "google" | "linkedin";
+  
 }
 
 export {};

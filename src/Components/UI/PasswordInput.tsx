@@ -5,6 +5,7 @@ import {
   InputAdornment,
   TextField,
   TextFieldProps,
+  Typography,
 } from "@mui/material";
 import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
@@ -22,7 +23,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   return (
-    <>
+    <Box>
       <TextField
         {...props}
         sx={style.field}
@@ -41,11 +42,27 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
         type={visible ? "text" : "password"}
       />
       {showForgot && (
-        <Box textAlign="right">
-          <Link href="/forgot-password">Forgot password?</Link>
+        <Box
+          sx={{
+            textAlign: "right",
+            mt: 1,
+          }}
+        >
+          <Typography
+            component={Link}
+            href="/forgot-password"
+            variant="body2"
+            color="text.secondary"
+            sx={{
+              textDecoration: "none",
+              "&:hover": { textDecoration: "underline", color: "text.primary" },
+            }}
+          >
+            forgot password?
+          </Typography>
         </Box>
       )}
-    </>
+    </Box>
   );
 };
 

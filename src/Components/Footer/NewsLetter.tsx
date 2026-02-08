@@ -1,5 +1,4 @@
-import { Box, Button, InputBase, SxProps, Typography } from "@mui/material";
-import { Mail, Send } from "lucide-react";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import NewsLetterForm from "./NewsLetterForm";
 

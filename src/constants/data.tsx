@@ -29,6 +29,8 @@ import {
   TwitterIcon,
   Users,
 } from "lucide-react";
+import GoogleIcon from "@/assets/svg/GoogleIcon.svg";
+import LinkedInIcon from "@/assets/svg/LinkedInIcon.svg";
 
 export const features = [
   {
@@ -283,4 +285,17 @@ export const socialLinks = [
 export const footerBottomLinks = [
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms & Conditions", href: "/terms-conditions" },
+];
+
+export const socialButtons = [
+  {
+    provider: "google",
+    icon: GoogleIcon,
+    label: "Continue with Google",
+  },
+  {
+    provider: "linkedin",
+    icon: LinkedInIcon,
+    label: "Continue with LinkedIn",
+  },
 ];

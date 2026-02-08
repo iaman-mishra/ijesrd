@@ -1,5 +1,6 @@
 import { Box, Stack, Typography } from "@mui/material";
 import React from "react";
+import { PageTransition } from "@/Components/Motion/AnimatedWrapper";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -41,7 +42,9 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       </Box>
 
       <Box sx={style.right}>
-        <Box sx={style.content}>{children}</Box>
+        <Box sx={style.content}>
+          <PageTransition>{children}</PageTransition>
+        </Box>
       </Box>
     </Box>
   );
