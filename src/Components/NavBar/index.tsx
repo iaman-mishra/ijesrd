@@ -1,11 +1,10 @@
-import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
+import { Box, Divider, IconButton, Typography } from "@mui/material";
 import { Search } from "lucide-react";
 import React from "react";
 import NavigationTab from "../Common/NavigationTab";
 import NavDrawerButton from "./NavDrawerButton";
 import { routes } from "@/constants/routes";
 import ThemeSwitch from "./ThemeSwitch";
-import Link from "next/link";
 import LinkButton from "../UI/LinkButton";
 
 const NavBar: React.FC = () => {

@@ -1,7 +1,6 @@
 "use client";
-import { emailField } from "@/Schemas/fields.schema";
-import { Box, Button, InputBase, TextField } from "@mui/material";
-import { FileX, Mail, Send } from "lucide-react";
+import { Box, Button, InputBase } from "@mui/material";
+import { Mail, Send } from "lucide-react";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -15,7 +14,7 @@ const NewsLetterForm: React.FC = () => {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitting, isValid },
+    formState: { errors, isSubmitting },
   } = useForm<NewsletterFormData>({
     resolver: zodResolver(newsletterSchema),
   });

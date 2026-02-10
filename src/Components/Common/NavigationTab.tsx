@@ -3,6 +3,15 @@ import Link from "next/link";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { usePathname } from "next/navigation";
+import { SxProps, Theme } from "@mui/material/styles";
+
+interface NavigationTabProps {
+  routes: IRoute[];
+  orientation: "vertical" | "horizontal";
+  isCentered: boolean;
+  style: SxProps<Theme>;
+  showIcon?: boolean;
+}
 
 const NavigationTab = ({
   routes,

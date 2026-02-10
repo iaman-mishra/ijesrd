@@ -1,7 +1,4 @@
 import { Box, Typography } from "@mui/material";
-import FacebookIcon from "@/assets/svg/facebook.svg";
-import LinkedinIcon from "@/assets/svg/linkedin.svg";
-import TwitterIcon from "@/assets/svg/twitter.svg";
 import React from "react";
 import { socialLinks } from "@/constants/data";
 const Header: React.FC = () => {

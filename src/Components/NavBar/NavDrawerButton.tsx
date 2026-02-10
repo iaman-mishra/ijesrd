@@ -3,8 +3,12 @@ import React, { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import Drawer from "@mui/material/Drawer";
 import { Box } from "@mui/material";
-import { ChevronLeft, CircleChevronLeft, Menu } from "lucide-react";
+import { ChevronLeft, Menu } from "lucide-react";
 import NavigationTab from "../Common/NavigationTab";
+
+interface INavDrawerButton {
+  routes: IRoute[];
+}
 
 const NavDrawerButton: React.FC<INavDrawerButton> = ({ routes }) => {
   const [drawerOpen, setDrawerOpen] = useState<boolean>(false);

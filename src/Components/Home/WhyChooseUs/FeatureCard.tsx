@@ -3,6 +3,13 @@ import { SpringUp } from "@/Components/Motion/AnimatedWrapper";
 import { Box, Typography } from "@mui/material";
 import React from "react";
 
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  index: number;
+}
+
 const FeatureCard: React.FC<FeatureCardProps> = ({
   icon,
   title,

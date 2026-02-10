@@ -3,12 +3,25 @@ import React, { useRef } from "react";
 import { Box, Typography } from "@mui/material";
 import { motion, MotionValue, useScroll, useTransform } from "framer-motion";
 
+interface Step {
+  step: number;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+}
+
+interface AnimatedCardsWrapperProps {
+  steps: Step[];
+  header: React.ReactNode;
+}
+
+const MotionBox = motion.create(Box);
+
 const AnimatedCardsWrapper: React.FC<AnimatedCardsWrapperProps> = ({
   steps,
   header,
 }) => {
   const sectionRef = useRef(null);
-  const MotionBox = motion.create(Box);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -60,8 +73,6 @@ const AnimatedCard: React.FC<AnimatedCardProps> = ({
   totalSteps,
   scrollYProgress,
 }) => {
-  const MotionBox = motion.create(Box);
-
   const startOffset = 0.1;
   const endOffset = 0.9;
   const totalRange = endOffset - startOffset;

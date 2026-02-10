@@ -3,6 +3,20 @@ import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 
+type PxMargin =
+  | `${number}px`
+  | `${number}px ${number}px`
+  | `${number}px ${number}px ${number}px`
+  | `${number}px ${number}px ${number}px ${number}px`;
+
+interface AnimatedCounterProps {
+  value: number;
+  className?: string;
+  duration?: number;
+  margin?: PxMargin;
+  decimals?: number;
+}
+
 const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   value,
   className,
@@ -15,7 +29,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const formatted = useTransform(count, (latest) => latest.toFixed(decimals));
 
   const ref = useRef<HTMLSpanElement | null>(null);
-  const isInView = useInView(ref, { once: true, margin: margin as any });
+  const isInView = useInView(ref, { once: true, margin: margin });
 
   useEffect(() => {
     if (isInView) {

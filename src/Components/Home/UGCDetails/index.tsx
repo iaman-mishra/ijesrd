@@ -1,4 +1,4 @@
-import React, { CSSProperties } from "react";
+import React from "react";
 import {
   Box,
   Table,
@@ -8,9 +8,7 @@ import {
   TableRow,
 } from "@mui/material";
 import SectionHeader from "@/Components/Common/SectionHeader";
-import ugcImage from "@/assets/images/UGC.webp";
 import { ugcApprovalDetails } from "@/constants/data";
-import Image from "next/image";
 
 const UGCDetails: React.FC = () => {
   return (

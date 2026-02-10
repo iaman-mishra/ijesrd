@@ -2,6 +2,12 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import { FadeUp, BlurIn, ScaleX } from "../Motion/AnimatedWrapper";
 
+interface ISectionHeader {
+  title: string;
+  description?: string;
+  variant?: "primary" | "secondary";
+}
+
 const SectionHeader: React.FC<ISectionHeader> = ({
   title,
   description,
