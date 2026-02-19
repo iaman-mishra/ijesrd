@@ -132,6 +132,9 @@ const Theme = createTheme({
   components: {
     MuiCssBaseline: {
       styleOverrides: {
+        html: {
+          scrollbarGutter: "stable",
+        },
         body: {
           margin: 0,
           padding: 0,

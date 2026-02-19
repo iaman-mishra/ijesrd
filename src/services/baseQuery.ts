@@ -12,7 +12,7 @@ const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 export const baseQuery = fetchBaseQuery({
   baseUrl: baseUrl,
   prepareHeaders: (headers, { getState }) => {
-    const token = (getState() as RootState).auth.acessToken;
+    const token = (getState() as RootState).auth.accessToken;
     if (token) {
       headers.set("authorization", `Bearer ${token}`);
     }
@@ -30,7 +30,7 @@ export const baseQueryWithReauth: BaseQueryFn<
   const authState = (store.getState() as RootState).auth;
 
   if (result.error && result.error.status === 401) {
-    if (!authState.acessToken || !authState.refreshToken) return result;
+    if (!authState.accessToken || !authState.refreshToken) return result;
 
     const refreshResult = await baseQuery(
       {
