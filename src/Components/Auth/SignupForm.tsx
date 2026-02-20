@@ -4,7 +4,9 @@ import {
   Button,
   Checkbox,
   Divider,
+  FormControl,
   FormControlLabel,
+  FormHelperText,
   Stack,
   Typography,
 } from "@mui/material";
@@ -31,7 +33,11 @@ const SignupForm: React.FC = () => {
     resolver: zodResolver(signupFormSchema),
   });
 
-  const handleLogin = () => {};
+  const handleLogin = async (data: SingupFormData) => {
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    console.log(data);
+    reset();
+  };
 
   return (
     <Stack spacing={4}>
@@ -94,23 +100,23 @@ const SignupForm: React.FC = () => {
             {...register("confirmPassword")}
           />
 
-          <FormControlLabel
-            control={<Checkbox />}
-            label={
-              <Typography variant="body2" color="text.secondary">
-                I agree to the{" "}
-                <Box component="span" color="primary.main">
-                  terms and conditions
-                </Box>
-              </Typography>
-            }
-            {...register("terms")}
-          />
-          {errors.terms && (
-            <Typography variant="body2" color="error.main">
-              {errors.terms?.message}
-            </Typography>
-          )}
+          <FormControl error={!!errors.terms}>
+            <FormControlLabel
+              control={<Checkbox {...register("terms")} />}
+              label={
+                <Typography variant="body2" color="text.secondary">
+                  I agree to the{" "}
+                  <Box component="span" color="primary.main">
+                    terms and conditions
+                  </Box>
+                </Typography>
+              }
+            />
+
+            {errors.terms && (
+              <FormHelperText>{errors.terms.message}</FormHelperText>
+            )}
+          </FormControl>
         </Stack>
 
         <Button type="submit" variant="contained" size="large">

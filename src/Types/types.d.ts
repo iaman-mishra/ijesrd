@@ -10,7 +10,17 @@ declare global {
   type IStyle = Record<string, SxProps<Theme>>;
 
   type SocialProvider = "google" | "linkedin";
-  
+
+  interface ApiResponse<T> {
+    data: T;
+    message: string;
+    sucess: boolean;
+  }
+
+  interface AuthTokens {
+    accessToken: string;
+    refreshToken: string;
+  }
 }
 
 export {};

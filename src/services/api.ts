@@ -18,6 +18,9 @@ export const api = createApi({
     //     return { url: `/users/login`, method: "POST", body };
     //   },
     // }),
+    signup: builder.mutation<ApiResponse<null>, { name: string }>({
+      query: () => "/api/users/register",
+    }),
   }),
 });
 
