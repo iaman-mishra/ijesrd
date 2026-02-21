@@ -20,8 +20,11 @@ import { useForm } from "react-hook-form";
 import { signupFormSchema } from "@/Schemas/forms.schemas";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSignupMutation } from "@/services/api";
 
 const SignupForm: React.FC = () => {
+  const [signup, { isLoading }] = useSignupMutation();
+
   type SingupFormData = z.infer<typeof signupFormSchema>;
 
   const {
@@ -33,10 +36,13 @@ const SignupForm: React.FC = () => {
     resolver: zodResolver(signupFormSchema),
   });
 
-  const handleLogin = async (data: SingupFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    console.log(data);
-    reset();
+  const handleSignup = async (data: SingupFormData) => {
+    try {
+      await signup(data).unwrap();
+      reset();
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   return (
@@ -54,7 +60,7 @@ const SignupForm: React.FC = () => {
         </Typography>
       </Divider>
 
-      <Stack spacing={3} component="form" onSubmit={handleSubmit(handleLogin)}>
+      <Stack spacing={3} component="form" onSubmit={handleSubmit(handleSignup)}>
         <Stack spacing={2}>
           <Stack direction="row" spacing={2}>
             <CustomInput

@@ -6,22 +6,14 @@ export const api = createApi({
   tagTypes: ["ME"],
   baseQuery: baseQueryWithReauth,
   endpoints: (builder) => ({
-    // me: builder.query<ApiResponse<User>, void>({
-    //   query: () => `/users/me`,
-    //   providesTags: ["ME"],
-    // }),
-    // login: builder.mutation<
-    //   ApiResponse<{ accessToken: string; refreshToken: string }>,
-    //   { email: string; password: string }
-    // >({
-    //   query: (body) => {
-    //     return { url: `/users/login`, method: "POST", body };
-    //   },
-    // }),
-    signup: builder.mutation<ApiResponse<null>, { name: string }>({
-      query: () => "/api/users/register",
+    signup: builder.mutation<ApiResponse<string>, { name: string }>({
+      query: (body) => ({
+        url: "/user/signup",
+        method: "POST",
+        body,
+      }),
     }),
   }),
 });
 
-export const {} = api;
+export const { useSignupMutation } = api;
