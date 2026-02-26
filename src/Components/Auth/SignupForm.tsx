@@ -10,7 +10,7 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../UI/CustomInput";
 import PasswordInput from "../UI/PasswordInput";
 import AuthHeader from "./AuthHeader";
@@ -24,6 +24,7 @@ import { useSignupMutation } from "@/services/api";
 
 const SignupForm: React.FC = () => {
   const [signup, { isLoading }] = useSignupMutation();
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   type SingupFormData = z.infer<typeof signupFormSchema>;
 
@@ -31,6 +32,7 @@ const SignupForm: React.FC = () => {
     register,
     handleSubmit,
     reset,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm<SingupFormData>({
     resolver: zodResolver(signupFormSchema),
@@ -40,9 +42,17 @@ const SignupForm: React.FC = () => {
     try {
       await signup(data).unwrap();
       reset();
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err: any) {
+    // if (err?.status =) {
+    //   err.data.detail.forEach((error: any) => {
+    //     const fieldName = error.loc[1]; 
+    //     setError(fieldName as keyof SingupFormData, {
+    //       type: "server",
+    //       message: error.msg,
+    //     });
+    //   });
+    // }
+  }
   };
 
   return (
@@ -96,10 +106,13 @@ const SignupForm: React.FC = () => {
             error={!!errors.password}
             helperText={errors.password?.message}
             {...register("password")}
+            showPassword={showPassword}
+            setShowPassword={setShowPassword}
           />
-
-          <PasswordInput
+          
+          <CustomInput
             required
+            type={showPassword ? "text" : "password"}
             label="Confirm Password"
             error={!!errors.confirmPassword}
             helperText={errors.confirmPassword?.message}
@@ -125,7 +138,7 @@ const SignupForm: React.FC = () => {
           </FormControl>
         </Stack>
 
-        <Button type="submit" variant="contained" size="large">
+        <Button type="submit" variant="contained" size="large" loading={isSubmitting}>
           Create Account
         </Button>
       </Stack>

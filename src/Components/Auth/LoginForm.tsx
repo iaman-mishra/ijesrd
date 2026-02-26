@@ -1,6 +1,6 @@
 "use client";
 import { Button, Divider, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../UI/CustomInput";
 import PasswordInput from "../UI/PasswordInput";
 import AuthHeader from "./AuthHeader";
@@ -8,6 +8,8 @@ import AuthSocialButtons from "./AuthSocialButtons";
 import AuthFooterLink from "./AuthFooterLink";
 
 const LoginForm: React.FC = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+
   return (
     <Stack spacing={4}>
       <AuthHeader
@@ -26,7 +28,7 @@ const LoginForm: React.FC = () => {
       <Stack spacing={3} component="form">
         <Stack spacing={2}>
           <CustomInput type="email" label="Email" required />
-          <PasswordInput label="Password" showForgot required />
+          <PasswordInput label="Password" showForgot required showPassword={showPassword} setShowPassword={setShowPassword}/>
         </Stack>
         <Button type="submit" variant="contained" size="large">
           Login

@@ -8,20 +8,22 @@ import {
   Typography,
 } from "@mui/material";
 import { Eye, EyeOff } from "lucide-react";
-import { useState } from "react";
 import Link from "next/link";
 
 type BaseProps = Omit<TextFieldProps, "slotProps" | "type">;
 
 interface PasswordInputProps extends BaseProps {
   showForgot?: boolean;
+  showPassword: boolean;
+  setShowPassword: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const PasswordInput: React.FC<PasswordInputProps> = ({
   showForgot = false,
+  showPassword,
+  setShowPassword,
   ...props
 }) => {
-  const [visible, setVisible] = useState<boolean>(false);
   return (
     <Box>
       <TextField
@@ -31,15 +33,15 @@ const PasswordInput: React.FC<PasswordInputProps> = ({
           input: {
             endAdornment: (
               <InputAdornment position="end" sx={style.icon}>
-                <IconButton onClick={() => setVisible(!visible)}>
-                  {visible ? <EyeOff size={20} /> : <Eye size={20} />}
+                <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                 </IconButton>
               </InputAdornment>
             ),
           },
         }}
         fullWidth
-        type={visible ? "text" : "password"}
+        type={showPassword ? "text" : "password"}
       />
       {showForgot && (
         <Box
