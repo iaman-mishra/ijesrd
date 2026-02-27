@@ -5,7 +5,7 @@ type BaseProps = Omit<TextFieldProps, "slotProps">;
 interface CustomInputProps extends BaseProps {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-}
+} 
 
 const CustomInput: React.FC<CustomInputProps> = ({
   startIcon,

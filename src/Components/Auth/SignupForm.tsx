@@ -23,7 +23,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useSignupMutation } from "@/services/api";
 
 const SignupForm: React.FC = () => {
-  const [signup, { isLoading }] = useSignupMutation();
+  const [signup, { isLoading, isError }] = useSignupMutation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   type SingupFormData = z.infer<typeof signupFormSchema>;
@@ -40,19 +40,13 @@ const SignupForm: React.FC = () => {
 
   const handleSignup = async (data: SingupFormData) => {
     try {
-      await signup(data).unwrap();
+      const response = await signup(data).unwrap();
       reset();
-    } catch (err: any) {
-    // if (err?.status =) {
-    //   err.data.detail.forEach((error: any) => {
-    //     const fieldName = error.loc[1]; 
-    //     setError(fieldName as keyof SingupFormData, {
-    //       type: "server",
-    //       message: error.msg,
-    //     });
-    //   });
-    // }
-  }
+    } catch (error: any) {
+      if (isError && error.status === 429) {
+        for 
+      }
+    }
   };
 
   return (
@@ -109,7 +103,7 @@ const SignupForm: React.FC = () => {
             showPassword={showPassword}
             setShowPassword={setShowPassword}
           />
-          
+
           <CustomInput
             required
             type={showPassword ? "text" : "password"}
@@ -131,14 +125,18 @@ const SignupForm: React.FC = () => {
                 </Typography>
               }
             />
-
             {errors.terms && (
               <FormHelperText>{errors.terms.message}</FormHelperText>
             )}
           </FormControl>
         </Stack>
 
-        <Button type="submit" variant="contained" size="large" loading={isSubmitting}>
+        <Button
+          type="submit"
+          variant="contained"
+          size="large"
+          loading={isSubmitting}
+        >
           Create Account
         </Button>
       </Stack>
