@@ -8,6 +8,7 @@ import { store } from "@/store/store";
 import { Provider } from "react-redux";
 import { useEffect } from "react";
 import { updateToken } from "@/store/slices/authSlice";
+import CustomToaster from "@/Components/Common/CustomToaster";
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       <Provider store={store}>
         <ThemeProvider theme={Theme} defaultMode={"system"}>
           <CssBaseline />
+          <CustomToaster />
           <ReactLenis root>{children}</ReactLenis>
         </ThemeProvider>
       </Provider>

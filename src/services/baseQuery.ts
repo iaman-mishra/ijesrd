@@ -6,6 +6,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 import { RootState } from "@/store/store";
 import { logoutUser, updateToken } from "@/store/slices/authSlice";
+import { toast } from "sonner";
 
 const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -53,6 +54,27 @@ export const baseQueryWithReauth: BaseQueryFn<
       result = await baseQuery(args, store, extraOptions);
     } else {
       store.dispatch(logoutUser());
+    }
+  }
+
+
+  if (result.error) {
+    const status = result.error.status;
+    const data = result.error.data as ApiResponse;
+
+    if (status === 500) {
+      toast.error("Something went wrong. Please try again later.");
+    }
+
+    else if (status === "FETCH_ERROR") {
+      toast.error("Network error. Check your connection.");
+    }
+
+    else if (status === 403) {
+      toast.error("You don’t have permission to perform this action.");
+    }
+    else if (data?.message) {
+      toast.error(data.message);
     }
   }
   return result;

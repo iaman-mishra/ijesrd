@@ -1,8 +1,12 @@
 import SignupForm from "@/Components/Auth/SignupForm";
-import React from "react";
+import React, { Suspense } from "react";
 
 const Signup: React.FC = () => {
-  return <SignupForm />;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SignupForm />
+    </Suspense>
+  );
 };
 
 export default Signup;

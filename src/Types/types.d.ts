@@ -1,16 +1,17 @@
 import { SxProps, Theme } from "@mui/material/styles";
 
 declare global {
+  
   interface ValidationError {
     field: string;
     message: string;
   }
 
-  interface ApiResponse<T> {
-    sucess: boolean;
+  interface ApiResponse<T = null> {
+    success: boolean;
     message: string;
     data: T | null;
-    error: string | ValidationError[] | null;
+    errors: ValidationError[] | null;
   }
 
   interface AuthTokens {

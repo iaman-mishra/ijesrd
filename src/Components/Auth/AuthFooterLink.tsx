@@ -7,18 +7,26 @@ interface AuthFooterLinkProps {
   text: string;
   linkText: string;
   href: string;
+  onClick?: () => void;
 }
 
 const AuthFooterLink: React.FC<AuthFooterLinkProps> = ({
   text,
   linkText,
   href,
+  onClick,
 }) => {
   return (
     <Box textAlign="center">
       <Typography variant="body2" color="text.secondary">
         {text}{" "}
-        <Box component={Link} href={href} sx={styles.link} color="primary.main">
+        <Box
+          component={Link}
+          href={href}
+          sx={styles.link}
+          color="primary.main"
+          onClick={onClick}
+        >
           {linkText}
         </Box>
       </Typography>

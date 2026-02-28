@@ -11,6 +11,7 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import CustomInput from "../UI/CustomInput";
 import PasswordInput from "../UI/PasswordInput";
 import AuthHeader from "./AuthHeader";
@@ -21,9 +22,19 @@ import { signupFormSchema } from "@/Schemas/forms.schemas";
 import z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSignupMutation } from "@/services/api";
+import { handleValidationError } from "@/utils/helper";
+import { toast } from "sonner";
+import VerificationEmailSent from "./VerificationEmailSent";
 
 const SignupForm: React.FC = () => {
-  const [signup, { isLoading, isError }] = useSignupMutation();
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const isSubmitted = searchParams.get("success") === "true";
+  const userEmail = searchParams.get("email") || "";
+
+  const [signup] = useSignupMutation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   type SingupFormData = z.infer<typeof signupFormSchema>;
@@ -40,14 +51,20 @@ const SignupForm: React.FC = () => {
 
   const handleSignup = async (data: SingupFormData) => {
     try {
-      const response = await signup(data).unwrap();
+      await signup(data).unwrap();
+      toast.success("Account created successfully!");
+      router.push(
+        `${pathname}?success=true&email=${encodeURIComponent(data.email)}`,
+      );
       reset();
-    } catch (error: any) {
-      if (isError && error.status === 429) {
-        for 
-      }
+    } catch (error: unknown) {
+      handleValidationError<SingupFormData>(error, setError);
     }
   };
+
+  if (isSubmitted) {
+    return <VerificationEmailSent />;
+  }
 
   return (
     <Stack spacing={4}>
