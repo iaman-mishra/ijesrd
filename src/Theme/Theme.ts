@@ -37,6 +37,7 @@ const Theme = createTheme({
           paper: "#fff",
           default: "#fff",
         },
+        
       },
     },
     dark: {

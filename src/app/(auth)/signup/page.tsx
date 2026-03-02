@@ -3,7 +3,7 @@ import React, { Suspense } from "react";
 
 const Signup: React.FC = () => {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense>
       <SignupForm />
     </Suspense>
   );

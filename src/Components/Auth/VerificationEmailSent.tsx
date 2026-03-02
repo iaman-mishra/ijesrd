@@ -8,29 +8,27 @@ import { toast } from "sonner";
 import AuthFooterLink from "./AuthFooterLink";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useResendVerificationEmailMutation } from "@/services/api";
+import PulsatingIcon from "./PulsatingIcon";
 
 const VerificationEmailSent: React.FC = () => {
-  const searchParams = useSearchParams();
+  const [resendVerificationEmail, { isLoading }] =
+    useResendVerificationEmailMutation();
 
+  const searchParams = useSearchParams();
   const userEmail = searchParams.get("email") || "";
 
-  const handleResend = () => {
-    toast.success("Verification email resent successfully!");
+  const handleResend = async () => {
+    const response = await resendVerificationEmail({ email: userEmail });
+    if (response.data?.success) {
+      toast.success("Verification email sent successfully!");
+    }
   };
 
   return (
     <PageTransition>
       <Stack spacing={4} alignItems="center" textAlign="center">
-        <Box sx={style.iconWrapper}>
-          <Mail size={42} strokeWidth={1.5} />
-          <Box
-            component={motion.div}
-            animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.3, 0.1] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            sx={style.iconRing}
-          />
-        </Box>
-
+        <PulsatingIcon icon={Mail} />
         <Stack spacing={1.5}>
           <Typography variant="h3" sx={style.heading}>
             Check your inbox
@@ -52,6 +50,7 @@ const VerificationEmailSent: React.FC = () => {
             endIcon={<ArrowRight size={18} />}
             component={Link}
             href="/login"
+            disabled={isLoading}
           >
             Back to Login
           </Button>
@@ -62,6 +61,7 @@ const VerificationEmailSent: React.FC = () => {
             size="large"
             startIcon={<RefreshCcw size={18} />}
             onClick={handleResend}
+            loading={isLoading}
           >
             Resend Email
           </Button>

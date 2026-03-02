@@ -32,7 +32,6 @@ const SignupForm: React.FC = () => {
   const searchParams = useSearchParams();
 
   const isSubmitted = searchParams.get("success") === "true";
-  const userEmail = searchParams.get("email") || "";
 
   const [signup] = useSignupMutation();
   const [showPassword, setShowPassword] = useState<boolean>(false);
