@@ -12,23 +12,15 @@ export const api = createApi({
         method: "POST",
         body,
       }),
-    }),
-
-    resendVerificationEmail: builder.mutation<ApiResponse, { email: string }>({
-      query: (body) => ({
-        url: "/user/send-verify",
-        method: "POST",
-        body,
-      }),
-    }),
-    
+    }),    
     verify: builder.query<ApiResponse, {token: string} >({
       query: ({token}) => ({
         url: `/user/verify?token=${token}`,
         method: "GET",
       }),
+      keepUnusedDataFor: 0,
     })
   }),
 });
 
-export const { useSignupMutation , useResendVerificationEmailMutation , useVerifyQuery} = api;
+export const { useSignupMutation , useVerifyQuery} = api;

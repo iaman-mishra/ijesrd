@@ -2,28 +2,16 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Mail, ArrowRight, RefreshCcw } from "lucide-react";
-import { motion } from "framer-motion";
 import { PageTransition } from "../Motion/AnimatedWrapper";
 import { toast } from "sonner";
 import AuthFooterLink from "./AuthFooterLink";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useResendVerificationEmailMutation } from "@/services/api";
 import PulsatingIcon from "./PulsatingIcon";
 
 const VerificationEmailSent: React.FC = () => {
-  const [resendVerificationEmail, { isLoading }] =
-    useResendVerificationEmailMutation();
-
   const searchParams = useSearchParams();
   const userEmail = searchParams.get("email") || "";
-
-  const handleResend = async () => {
-    const response = await resendVerificationEmail({ email: userEmail });
-    if (response.data?.success) {
-      toast.success("Verification email sent successfully!");
-    }
-  };
 
   return (
     <PageTransition>
@@ -42,30 +30,16 @@ const VerificationEmailSent: React.FC = () => {
           </Typography>
         </Stack>
 
-        <Stack spacing={2} width="100%">
-          <Button
-            fullWidth
-            variant="contained"
-            size="large"
-            endIcon={<ArrowRight size={18} />}
-            component={Link}
-            href="/login"
-            disabled={isLoading}
-          >
-            Back to Login
-          </Button>
-
-          <Button
-            fullWidth
-            variant="outlined"
-            size="large"
-            startIcon={<RefreshCcw size={18} />}
-            onClick={handleResend}
-            loading={isLoading}
-          >
-            Resend Email
-          </Button>
-        </Stack>
+        <Button
+          fullWidth
+          variant="contained"
+          size="large"
+          endIcon={<ArrowRight size={18} />}
+          component={Link}
+          href="/login"
+        >
+          Back to Login
+        </Button>
 
         <AuthFooterLink
           text="Entered the wrong email?"

@@ -25,6 +25,7 @@ import { useSignupMutation } from "@/services/api";
 import { handleValidationError } from "@/utils/helper";
 import { toast } from "sonner";
 import VerificationEmailSent from "./VerificationEmailSent";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 const SignupForm: React.FC = () => {
   const router = useRouter();
@@ -57,7 +58,16 @@ const SignupForm: React.FC = () => {
       );
       reset();
     } catch (error: unknown) {
-      handleValidationError<SingupFormData>(error, setError);
+      const status = (error as FetchBaseQueryError).status;
+      const data = (error as FetchBaseQueryError).data as ApiResponse;
+
+      if (status === 422) {
+        handleValidationError<SingupFormData>(status, data, setError);
+      }
+
+      if (status === 409) {
+        toast.error(data?.message);
+      }
     }
   };
 

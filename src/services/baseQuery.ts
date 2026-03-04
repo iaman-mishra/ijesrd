@@ -70,11 +70,16 @@ export const baseQueryWithReauth: BaseQueryFn<
       toast.error("Network error. Check your connection.");
     }
 
+    else if (status === "PARSING_ERROR") {
+      toast.error("Invalid server response.");
+    }
+
+    else if (status === "TIMEOUT_ERROR") {
+      toast.error("Server is taking too long to respond.");
+    }
+
     else if (status === 403) {
       toast.error("You don’t have permission to perform this action.");
-    }
-    else if (data?.message) {
-      toast.error(data.message);
     }
   }
   return result;

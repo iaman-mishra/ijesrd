@@ -1,11 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { CircularProgress, Stack, Typography } from "@mui/material";
+import { CircularProgress, Stack } from "@mui/material";
 import { useVerifyQuery } from "@/services/api";
-import { CheckCircle2, XCircle, AlertCircle } from "lucide-react";
-import PulsatingIcon from "@/Components/Auth/PulsatingIcon";
+import { CheckCircle2, AlertCircle } from "lucide-react";
 import { Suspense } from "react";
+import VerifyItem from "@/Components/Auth/VerifyItem";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { getVerifyErrorConfig } from "@/utils/helper";
 
 const VerifyPage: React.FC = () => {
   return (
@@ -20,7 +22,7 @@ const VerifyContent: React.FC = () => {
   const router = useRouter();
   const token = searchParams.get("token");
 
-  const { isLoading, isSuccess, isError } = useVerifyQuery(
+  const { isLoading, isSuccess, isError, error } = useVerifyQuery(
     { token: token as string },
     { skip: !token },
   );
@@ -30,7 +32,7 @@ const VerifyContent: React.FC = () => {
   useEffect(() => {
     if (!isSuccess) return;
     if (countdown === 0) {
-      router.replace("/");
+      router.replace("/dashboard");
       return;
     }
     const timer = setTimeout(() => {
@@ -39,95 +41,64 @@ const VerifyContent: React.FC = () => {
     return () => clearTimeout(timer);
   }, [isSuccess, countdown, router]);
 
+  const status = (error as FetchBaseQueryError)?.status as number | undefined;
+  const errorConfig = getVerifyErrorConfig(status);
+
   if (!token) {
     return (
-      <ContentItem
-        title="Invalid Link"
-        description={
-          "This verification link is missing or incorrect.\nPlease check your email."
-        }
-        icon={AlertCircle}
+      <VerifyItem
         color="error.main"
+        icon={AlertCircle}
+        heading="Invalid Verification Link"
+        description="This verification link is missing or invalid."
+        buttonText="Back to Login"
+        buttonHref="/login"
+        fotterText="Need a new verification link?"
+        fotterHref="/signup"
+        fotterLinkText="Sign up again"
       />
     );
   }
 
   if (isLoading) {
     return (
-      <ContentItem
-        title="Verifying Email"
-        description="Please wait while we verify your email address."
-      />
+      <Stack textAlign={"center"} alignItems={"center"}>
+        <CircularProgress size={56} />
+      </Stack>
     );
   }
 
   if (isSuccess) {
     return (
-      <ContentItem
-        title="Email Verified!"
-        description={`Your email has been successfully verified.\nRedirecting in ${countdown} seconds...`}
-        icon={CheckCircle2}
+      <VerifyItem
         color="success.main"
+        icon={CheckCircle2}
+        heading="Email Verified Successfully"
+        description={`Your email has been verified. Redirecting you to your dashboard in ${countdown}...`}
+        buttonText="Go to Home"
+        buttonHref="/"
+        fotterText="If you are not redirected,"
+        fotterHref="/dashboard"
+        fotterLinkText="click here"
       />
     );
   }
 
   if (isError) {
     return (
-      <ContentItem
-        title="Verification Failed"
-        description={
-          "The verification link has expired or is invalid.\nPlease request a new one."
-        }
-        icon={XCircle}
+      <VerifyItem
         color="error.main"
+        icon={AlertCircle}
+        heading={errorConfig.heading}
+        description={errorConfig.description}
+        buttonText={errorConfig.buttonText}
+        buttonHref={errorConfig.buttonHref}
+        fotterText={errorConfig.footerText}
+        fotterHref={errorConfig.footerHref}
+        fotterLinkText={errorConfig.footerLinkText}
       />
     );
   }
-
-  return null;
 };
-
-const ContentItem = ({
-  title,
-  description,
-  icon,
-  color,
-}: {
-  title: string;
-  description: string;
-  icon?: React.ElementType;
-  color?: string;
-}) => {
-  return (
-    <Stack spacing={4} sx={style.container}>
-      {icon ? (
-        <PulsatingIcon icon={icon} color={color} />
-      ) : (
-        <CircularProgress size={56} />
-      )}
-      <Stack spacing={1}>
-        <Typography variant="h5" fontWeight={700}>
-          {title}
-        </Typography>
-        <Typography
-          color="text.secondary"
-          variant="body2"
-          sx={{ whiteSpace: "pre-line" }}
-        >
-          {description}
-        </Typography>
-      </Stack>
-    </Stack>
-  );
-};
-
-const style = {
-  container: {
-    alignItems: "center",
-    textAlign: "center",
-    py: 4,
-  },
-} satisfies IStyle;
 
 export default VerifyPage;
