@@ -6,21 +6,29 @@ export const api = createApi({
   tagTypes: ["ME"],
   baseQuery: baseQueryWithReauth,
   endpoints: (builder) => ({
-    signup: builder.mutation<ApiResponse, SignupMutationData>({
+    signup: builder.mutation<
+      ApiResponse,
+      {
+        email: string;
+        password: string;
+        firstName: string;
+        lastName: string;
+      }
+    >({
       query: (body) => ({
         url: "/user/signup",
         method: "POST",
         body,
       }),
-    }),    
-    verify: builder.query<ApiResponse, {token: string} >({
-      query: ({token}) => ({
+    }),
+    verify: builder.query<ApiResponse, { token: string }>({
+      query: ({ token }) => ({
         url: `/user/verify?token=${token}`,
         method: "GET",
       }),
       keepUnusedDataFor: 0,
-    })
+    }),
   }),
 });
 
-export const { useSignupMutation , useVerifyQuery} = api;
+export const { useSignupMutation, useVerifyQuery } = api;

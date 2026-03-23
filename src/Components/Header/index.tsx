@@ -31,7 +31,7 @@ const style = {
   section: {
     display: { xs: "none", md: "flex" },
     width: "100%",
-    maxWidth: "1140px",
+    maxWidth: "1400px",
     padding: "30px 15px",
     margin: "0 auto",
   },

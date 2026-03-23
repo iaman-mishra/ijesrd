@@ -31,7 +31,7 @@ const style = {
     display: "flex",
     flexDirection: "column",
     gap: "3rem",
-    maxWidth: "1140px",
+    maxWidth: "1400px",
     margin: "0 auto",
     px: "15px",
   },

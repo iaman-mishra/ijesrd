@@ -40,9 +40,9 @@ const NavigationTab = ({
         <Tab
           key={index}
           label={route.label}
-          value={route.href}
+          value={route.href || "#"}
           component={Link}
-          href={route.href}
+          href={route.href || "#"}
           iconPosition="start"
           icon={showIcon ? route.icon : undefined}
         />
