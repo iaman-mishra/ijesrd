@@ -1,138 +1,105 @@
-import Box from "@mui/material/Box";
+import { Box, Button, Chip, Typography } from "@mui/material";
 import React from "react";
-import { Typography, Button, Stack } from "@mui/material";
+
+import HeroBg from "@/assets/png/HeroBG.png";
 import { ArrowRight } from "lucide-react";
-import HeroLottie from "./HeroLottie";
-import { BlurIn, ScaleX, FadeUp, SpringUp } from "../../Motion/AnimatedWrapper";
 
 const Hero: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
-      <Box sx={style.textContent}>
-        <BlurIn>
-          <Typography sx={style.title} variant="h1" component={"h1"}>
-            {"We Welcome Latest\n Research Articles in\n Field of Science"}
-          </Typography>
-        </BlurIn>
+      <Box sx={style.conatiner}>
+        <Chip
+          label="Official Peer-Reviewed Publication"
+          sx={style.chip}
+          color="primary"
+          variant="outlined"
+        />
 
-        <ScaleX delay={0.2}>
-          <Box sx={style.underline} />
-        </ScaleX>
+        <Typography sx={style.heading}>
+          {"Advancing the\n Frontiers of\n"}{" "}
+          <Box component={"span"} sx={style.span}>
+            {"Engineering &\n Systems "}
+          </Box>
+          {"Research"}
+        </Typography>
 
-        <FadeUp delay={0.4}>
-          <Typography
-            variant={"subtitle1"}
-            sx={style.description}
-            component={"p"}
+        <Typography sx={style.description}>
+          A peer-reviewed, open-access journal dedicated to fundamental
+          engineering principles and cutting-edge digital systems. Empowering
+          researchers worldwide since 2012.
+        </Typography>
+
+        <Box sx={style.buttonsBox}>
+          <Button
+            variant="contained"
+            size="large"
+            endIcon={<ArrowRight size={15} />}
           >
-            Publish your groundbreaking research with us and join a community of
-            leading scientists, researchers, and academics. Our peer-reviewed
-          </Typography>
-        </FadeUp>
-
-        <FadeUp delay={0.6}>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={2}
-            sx={style.buttonGroup}
-          >
-            <Button variant="contained" size="large" endIcon={<ArrowRight />}>
-              Submit Article
-            </Button>
-            <Button variant="outlined" size="large">
-              Browse Journals
-            </Button>
-          </Stack>
-        </FadeUp>
-      </Box>
-
-      <SpringUp delay={0.2}>
-        <Box sx={style.lottie}>
-          <HeroLottie />
+            Submit Manuscript
+          </Button>
+          <Button variant="outlined" size="large">
+            Browse Archive
+          </Button>
         </Box>
-      </SpringUp>
+      </Box>
     </Box>
   );
 };
 
 const style = {
   section: {
+    position: "relative",
+    height: { xs: "fit-content", md: "100vh" },
+    paddingX: { xs: "16px", sm: "24px" },
+    paddingTop: { xs: "40px", md: "0px" },
+    paddingBottom: { xs: "64px", md: "0px" },
+    overflow: "hidden",
+    background: `url(${HeroBg.src}) center/cover no-repeat`,
     display: "flex",
-    flexDirection: {
-      xs: "column-reverse",
-      lg: "row",
-    },
-    justifyContent: "space-between",
-    width: "100%",
-    gap: {
-      xs: "3rem",
-      lg: "4rem",
-      xl: "5rem",
-    },
-    paddingY: {
-      xs: "40px",
-      md: "60px",
-      xl: "80px",
-    },
-    maxWidth: "1140px",
-    paddingX: "15px",
-    margin: "0 auto",
-    minHeight: {
-      xs: "auto",
-      lg: "600px",
-    },
-  },
-  textContent: {
-    flex: 1,
-  },
-  title: {
-    whiteSpace: {
-      xs: "none",
-      lg: "pre-line",
-    },
-    textAlign: {
-      xs: "center",
-      lg: "start",
-    },
-    marginBottom: "1.5rem",
-  },
-  underline: {
-    width: "80px",
-    height: "5px",
-    bgcolor: "primary.main",
-    borderRadius: "1rem",
-    marginTop: "1rem",
-    marginBottom: "1.5rem",
-    marginX: {
-      xs: "auto",
-      lg: 0,
-    },
-  },
-  description: {
-    marginBottom: "2.5rem",
-    maxWidth: "600px",
-    textAlign: {
-      xs: "center",
-      lg: "start",
-    },
-    marginX: {
-      xs: "auto",
-      lg: 0,
-    },
-  },
-  buttonGroup: {
-    marginBottom: {
-      xs: "2.5rem",
-      md: "3rem",
-    },
-    justifyContent: {
-      xs: "center",
-      lg: "start",
-    },
     alignItems: "center",
   },
-  lottie: {
-    flex: 1,
+
+  chip: {
+    maxWidth: "fit-content",
+  },
+
+  conatiner: {
+    display: "flex",
+    flexDirection: "column",
+    maxWidth: "768px",
+    position: "relative",
+    gap: "24px",
+  },
+
+  heading: {
+    whiteSpace: "pre-line",
+    fontSize: { xs: "36px", md: "72px" },
+    fontWeight: 800,
+    color: "text.primary",
+    lineHeight: { xs: "45px", md: "72px" },
+  },
+  span: {
+    color: "primary.main",
+  },
+  description: {
+    maxWidth: "672px",
+    fontSize: { xs: "16px", md: "20px" },
+    fontWeight: 300,
+    lineHeight: { xs: "26px", md: "28px" },
+    color: "text.disabled",
+  },
+  buttonsBox: {
+    paddingTop: "24px",
+    display: "flex",
+    flexDirection: { xs: "column", sm: "row" },
+    flexWrap: "wrap",
+    gap: "16px",
+  },
+  button: {
+    paddingX: "32px",
+    paddingY: "17px",
+    fontSize: "16px",
+    fontWeight: 600,
   },
 } satisfies IStyle;
 

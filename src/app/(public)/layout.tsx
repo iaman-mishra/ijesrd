@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
-import Header from "@/Components/Header";
-import NavBar from "@/Components/NavBar";
 import Footer from "@/Components/Footer";
-const PublicLayout = ({ children }: { children: ReactNode }) => {
+import NavBar from "@/Components/Header";
+import { Box } from "@mui/material";
+import { ReactNode } from "react";
+
+const layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <Header />
       <NavBar />
       {children}
       <Footer />
@@ -13,4 +13,11 @@ const PublicLayout = ({ children }: { children: ReactNode }) => {
   );
 };
 
-export default PublicLayout;
+const style = {
+  rootLayout: {
+    maxWidth: "1280px",
+    marginX: "auto",
+  },
+} satisfies IStyle;
+
+export default layout;

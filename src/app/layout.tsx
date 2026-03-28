@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { Quicksand } from "next/font/google";
+import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { InitColorSchemeScript } from "@mui/material";
 import Providers from "./Providers";
 
-const quicksand = Quicksand({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-quicksand",
-  display: "swap",
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${quicksand.variable}`}>
+      <body className={`${inter.variable}`}>
         <InitColorSchemeScript attribute="class" />
         <Providers>{children}</Providers>
       </body>

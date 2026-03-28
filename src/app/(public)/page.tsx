@@ -1,36 +1,26 @@
-import React from "react";
+import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
-import { Box, Divider } from "@mui/material";
+import React from "react";
 
+// Sections
 import Hero from "@/Components/Home/Hero";
-
-const WhyChooseUs = dynamic(() => import("@/Components/Home/WhyChooseUs"));
 const HomeStats = dynamic(() => import("@/Components/Home/HomeStats"));
-const UGCDetails = dynamic(() => import("@/Components/Home/UGCDetails"));
-const PublishingSteps = dynamic(
-  () => import("@/Components/Home/PublishingSteps"),
+const LatestArticles = dynamic(
+  () => import("@/Components/Home/LatestArticles"),
 );
-const IndexShowcase = dynamic(() => import("@/Components/Home/IndexShowcase"));
-const RecentResearches = dynamic(
-  () => import("@/Components/Home/RecentResearches"),
+const WhyPublishWithUS = dynamic(
+  () => import("@/Components/Home/WhyPublishWithUS"),
 );
 
-const page: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <Box component={"main"}>
       <Hero />
-      <Divider />
-      <WhyChooseUs />
       <HomeStats />
-      <UGCDetails />
-      <Divider />
-      <PublishingSteps />
-      <Divider />
-      <IndexShowcase />
-      <Divider />
-      <RecentResearches />
+      <LatestArticles />
+      <WhyPublishWithUS />
     </Box>
   );
 };
 
-export default page;
+export default Home;
