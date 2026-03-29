@@ -23,10 +23,9 @@ const Theme = createTheme({
           disabled: "#424752",
         },
         background: {
-          paper: "#F9FAFB",
+          paper: "#F3F4F6",
           default: "#fff",
         },
-        divider: "#F3F4F6",
       },
     },
     // dark: {

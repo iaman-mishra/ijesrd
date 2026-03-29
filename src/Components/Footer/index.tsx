@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import React from "react";
-import NewsLetter from "./NewsLetter";
+
 import FooterLinks from "./FooterLinks";
 import FooterBottom from "./FooterBottom";
 
@@ -8,7 +8,6 @@ const Footer: React.FC = () => {
   return (
     <Box component={"footer"} sx={style.section}>
       <Box sx={style.container}>
-        <NewsLetter />
         <FooterLinks />
         <FooterBottom />
       </Box>

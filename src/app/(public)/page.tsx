@@ -11,6 +11,7 @@ const LatestArticles = dynamic(
 const WhyPublishWithUS = dynamic(
   () => import("@/Components/Home/WhyPublishWithUS"),
 );
+const CTASubmitNow = dynamic(() => import("@/Components/Home/CTASubmitNow"));
 
 const Home: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const Home: React.FC = () => {
       <HomeStats />
       <LatestArticles />
       <WhyPublishWithUS />
+      <CTASubmitNow />
     </Box>
   );
 };
