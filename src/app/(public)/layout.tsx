@@ -1,6 +1,5 @@
 import Footer from "@/Components/Footer";
 import NavBar from "@/Components/Header";
-import { Box } from "@mui/material";
 import { ReactNode } from "react";
 
 const layout = ({ children }: { children: ReactNode }) => {
@@ -12,12 +11,5 @@ const layout = ({ children }: { children: ReactNode }) => {
     </>
   );
 };
-
-const style = {
-  rootLayout: {
-    maxWidth: "1280px",
-    marginX: "auto",
-  },
-} satisfies IStyle;
 
 export default layout;

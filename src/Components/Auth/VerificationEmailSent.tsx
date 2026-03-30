@@ -1,9 +1,8 @@
 "use client";
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
-import { Mail, ArrowRight, RefreshCcw } from "lucide-react";
+import { Mail, ArrowRight } from "lucide-react";
 import { PageTransition } from "../Motion/AnimatedWrapper";
-import { toast } from "sonner";
 import AuthFooterLink from "./AuthFooterLink";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";

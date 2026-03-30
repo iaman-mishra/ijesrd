@@ -2,7 +2,6 @@ import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
 import React from "react";
 
-// Sections
 import Hero from "@/Components/Home/Hero";
 const HomeStats = dynamic(() => import("@/Components/Home/HomeStats"));
 const LatestArticles = dynamic(

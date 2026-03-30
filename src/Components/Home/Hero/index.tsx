@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 const Hero: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
-      <Box sx={style.conatiner}>
+      <Box sx={style.container}>
         <Chip
           label="Official Peer-Reviewed Publication"
           sx={style.chip}
@@ -63,7 +63,7 @@ const style = {
     maxWidth: "fit-content",
   },
 
-  conatiner: {
+  container: {
     display: "flex",
     flexDirection: "column",
     maxWidth: "768px",

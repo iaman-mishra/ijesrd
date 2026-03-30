@@ -1,124 +1,106 @@
 import { contactInfo, footerUrls } from "@/constants/data";
-import { Box, Stack, Typography, Grid } from "@mui/material";
-import { ArrowRight } from "lucide-react";
+import { Box, Typography, Grid } from "@mui/material";
 import Link from "next/link";
 import React from "react";
 
 const FooterLinks: React.FC = () => {
   return (
-    <Grid container spacing={"3rem"}>
-      <Grid size={{ xs: 12, lg: 4 }}>
-        <Stack spacing={3}>
+    <Grid container spacing={{ xs: "40px", md: "48px" }}>
+      <Grid size={{ xs: 12, md: 3 }}>
+        <Box sx={style.infoBox}>
           <Box>
             <Typography sx={style.title}>IJESRD</Typography>
-            <Typography variant="caption" sx={style.caption}>
-              ISSN: 2456-9283
-            </Typography>
+            <Typography sx={style.caption}>ISSN: 2456-9283</Typography>
           </Box>
           <Typography sx={style.description}>
-            International Journal of Engineering Science and Research
-            Development is a peer-reviewed, open-access journal dedicated to
-            publishing cutting-edge research.
+            Advancing science and technology through rigorous peer-reviewed
+            research and global collaboration.
           </Typography>
-        </Stack>
+        </Box>
       </Grid>
 
       {footerUrls.map((item) => (
-        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 2.5 }} key={item.title}>
+        <Grid size={{ xs: 6, md: 3 }} key={item.title}>
           <Typography sx={style.ColumnHeading}>{item.title}</Typography>
-          <Stack spacing={1.5}>
-            {item.links.map((url) => (
+          <Box sx={style.linkContainer}>
+            {item.links.map((url, index) => (
               <Link
-                key={url.label}
+                key={index}
                 href={url.href}
-                style={{ textDecoration: "none", width: "fit-content" }}
+                style={{
+                  textDecoration: "none",
+                }}
               >
-                <Typography sx={style.link}>
-                  <ArrowRight size={16} className="link-arrow-icon" />
-                  {url.label}
-                </Typography>
+                <Typography sx={style.link}>{url.label}</Typography>
               </Link>
             ))}
-          </Stack>
+          </Box>
         </Grid>
       ))}
 
-      <Grid size={{ xs: 12, md: 4, lg: 3 }}>
+      <Grid size={{ xs: 12, md: 3 }}>
         <Typography sx={style.ColumnHeading}>Contact Us</Typography>
-        <Stack spacing={2.5}>
-          {contactInfo.map((item) => (
+        <Box sx={style.linkContainer}>
+          {contactInfo.map((url) => (
             <Link
-              key={item.label}
-              href={item.url}
+              key={url.label}
+              href={url.url}
               style={{ textDecoration: "none" }}
             >
-              <Box sx={style.contactItem}>
-                <item.icon size={18} style={style.contactIcons} />
-                <Typography sx={style.contactText}>{item.value}</Typography>
-              </Box>
+              <Typography sx={style.link}>
+                {url.label}: {url.value}
+              </Typography>
             </Link>
           ))}
-        </Stack>
+        </Box>
       </Grid>
     </Grid>
   );
 };
 
 const style = {
+  infoBox: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    gap: "24px",
+  },
   title: {
     fontWeight: "800",
     color: "primary.main",
-    fontSize: "1.5rem",
+    fontSize: "24px",
+    lineHeight: "32px",
   },
   caption: {
-    fontWeight: "800",
+    fontSize: "12px",
+    lineHeight: "20px",
     color: "text.secondary",
   },
   description: {
-    lineHeight: 1.8,
+    fontSize: "12px",
+    lineHeight: "20px",
     color: "text.secondary",
     textAlign: "justify",
   },
   ColumnHeading: {
-    fontWeight: 700,
-    color: "text.secondary",
-    fontSize: "1rem",
-    mb: 3,
-    position: "relative",
-    display: "inline-block",
-    "&::after": {
-      content: '""',
-      position: "absolute",
-      left: 0,
-      bottom: -8,
-      width: "40px",
-      height: "3px",
-      borderRadius: "2px",
-      background: "var(--mui-palette-primary-main)",
-    },
+    fontWeight: 800,
+    fontSize: "11px",
+    lineHeight: "16.5px",
+    letterSpacing: "1.1px",
+    textTransform: "uppercase",
+    mb: "23px",
+  },
+  linkContainer: {
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
   },
   link: {
     color: "text.secondary",
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    transition: "all 0.3s ease",
-    fontSize: "0.9rem",
-    fontWeight: 500,
-    "& .link-arrow-icon": {
-      display: "none",
-      transform: "translateX(-10px)",
-      transition: "all 0.3s ease",
-      color: "primary.main",
-    },
+    fontSize: "13px",
+    lineHeight: "19.5px",
     "&:hover": {
       color: "primary.main",
-      paddingLeft: "5px",
-      "& .link-arrow-icon": {
-        display: "block",
-        opacity: 1,
-        transform: "translateX(0)",
-      },
     },
   },
   contactItem: {

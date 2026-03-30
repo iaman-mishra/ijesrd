@@ -19,9 +19,8 @@ export default Footer;
 
 const style = {
   section: {
-    width: "100%",
     backgroundColor: "background.default",
-    pt: "3rem",
+    pt: "96px",
     borderTop: "1px solid",
     borderColor: "divider",
     alignItems: "center",
@@ -29,9 +28,7 @@ const style = {
   container: {
     display: "flex",
     flexDirection: "column",
-    gap: "3rem",
-    maxWidth: "1400px",
-    margin: "0 auto",
-    px: "15px",
+    gap: "80px",
+    px: { xs: "16px", sm: "24px" },
   },
 } satisfies IStyle;

@@ -44,7 +44,7 @@ const NavDrawerButton: React.FC = () => {
         open={isDrawerOpen}
         onClose={toggleDrawer}
       >
-        <Box sx={style.drawerConatiner}>
+        <Box sx={style.drawerContainer}>
           <Box sx={style.drawerHeader}>
             <IconButton onClick={toggleDrawer} sx={{ color: "text.primary" }}>
               <X size={22} />
@@ -67,22 +67,22 @@ const NavDrawerButton: React.FC = () => {
                     >
                       {route.icon && (
                         <ListItemIcon sx={style.listIcon}>
-                          <route.icon size={20} />
+                          <route.icon size={15} />
                         </ListItemIcon>
                       )}
                       <ListItemText
                         primary={route.label}
                         slotProps={{
                           primary: {
-                            fontWeight: 500,
-                            fontSize: "0.95rem",
+                            fontSize: "14px",
+                            lineHeight: "20px",
                           },
                         }}
                       />
                       {isCollapseOpen ? (
-                        <ChevronUp size={18} />
+                        <ChevronUp size={15} />
                       ) : (
-                        <ChevronDown size={18} />
+                        <ChevronDown size={15} />
                       )}
                     </ListItemButton>
                     <Collapse in={isCollapseOpen} timeout="auto" unmountOnExit>
@@ -104,7 +104,7 @@ const NavDrawerButton: React.FC = () => {
                           >
                             {child.icon && (
                               <ListItemIcon sx={style.listIcon}>
-                                <child.icon size={20} />
+                                <child.icon size={15} />
                               </ListItemIcon>
                             )}
                             <ListItemText
@@ -112,8 +112,9 @@ const NavDrawerButton: React.FC = () => {
                               slotProps={{
                                 primary: {
                                   fontWeight:
-                                    pathname === child.href ? 600 : 500,
-                                  fontSize: "0.95rem",
+                                    pathname === child.href ? 500 : 400,
+                                  fontSize: "14px",
+                                  lineHeight: "20px",
                                 },
                               }}
                             />
@@ -137,15 +138,16 @@ const NavDrawerButton: React.FC = () => {
                 >
                   {route.icon && (
                     <ListItemIcon sx={style.listIcon}>
-                      <route.icon size={20} />
+                      <route.icon size={18} />
                     </ListItemIcon>
                   )}
                   <ListItemText
                     primary={route.label}
                     slotProps={{
                       primary: {
-                        fontWeight: isActive ? 600 : 500,
-                        fontSize: "0.95rem",
+                        fontWeight: isActive ? 500 : 400,
+                        fontSize: "14px",
+                        lineHeight: "20px",
                       },
                     }}
                   />
@@ -169,7 +171,7 @@ const NavDrawerButton: React.FC = () => {
 };
 
 const style = {
-  drawerConatiner: {
+  drawerContainer: {
     width: 280,
     display: "flex",
     flexDirection: "column",

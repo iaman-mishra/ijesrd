@@ -1,6 +1,4 @@
-import { footerBottomLinks, socialLinks } from "@/constants/data";
-import { Box, IconButton, Stack, Typography } from "@mui/material";
-import Link from "next/link";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 const FooterBottom: React.FC = () => {
@@ -8,59 +6,25 @@ const FooterBottom: React.FC = () => {
 
   return (
     <Box sx={style.section}>
-      <Typography variant="body2" sx={{ color: "text.secondary" }}>
-        © {currentYear} IJESRD. All rights reserved.
+      <Typography sx={style.copyrightText}>
+        © {currentYear} International Journal of Engineering Science & Research
+        Development (IJESRD). All Rights Reserved.
       </Typography>
-
-      <Stack direction="row" spacing={3}>
-        {footerBottomLinks.map((item) => (
-          <Link
-            key={item.label}
-            href={item.href}
-            style={{ textDecoration: "none" }}
-          >
-            <Typography sx={style.bottomLink}>{item.label}</Typography>
-          </Link>
-        ))}
-      </Stack>
-
-      <Stack direction="row" spacing={1}>
-        {socialLinks.map((item) => (
-          <IconButton
-            key={item.label}
-            sx={style.socialIcon}
-            component={"a"}
-            href={item.href}
-            target="_blank"
-          >
-            <item.icon size={18} />
-          </IconButton>
-        ))}
-      </Stack>
     </Box>
   );
 };
 
 const style = {
   section: {
-    paddingY: "1.5rem",
+    paddingY: "32px",
     borderTop: "1px solid",
     borderColor: "divider",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    flexDirection: { xs: "column-reverse", md: "row" },
-    gap: "1rem",
   },
-  bottomLink: {
-    color: "var(--mui-palette-text-secondary)",
-    textDecoration: "none",
-    fontSize: "0.875rem",
-    transition: "color 0.2s",
-    fontWeight: 500,
-    "&:hover": {
-      color: "var(--mui-palette-primary-main)",
-    },
+  copyrightText: {
+    color: "text.secondary",
+    textAlign: "center",
+    fontSize: { xs: "9px", md: "12px" },
+    lineHeight: { xs: "14.63px", md: "19.5px" },
   },
   socialIcon: {
     color: "text.secondary",

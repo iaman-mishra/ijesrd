@@ -1,12 +1,10 @@
-import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { UseFormSetError, Path, FieldValues } from "react-hook-form";
 
 export function handleValidationError<T extends FieldValues>(
   status: number,
   data: ApiResponse,
-  setError: UseFormSetError<T>
+  setError: UseFormSetError<T>,
 ) {
-  
   if (status !== 422 || !data) return;
 
   data.errors?.forEach((err) => {
@@ -16,7 +14,6 @@ export function handleValidationError<T extends FieldValues>(
     });
   });
 }
-
 
 type VerifyErrorConfig = {
   heading: string;

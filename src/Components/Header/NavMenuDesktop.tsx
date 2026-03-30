@@ -32,6 +32,8 @@ const NavMenuDesktop: React.FC<NavMenuDesktopProps> = ({
             color: isActive ? "primary.main" : "text.secondary",
             minWidth: 0,
             transition: "color 0.15s",
+            fontSize: "14px",
+            lineHeight: "20px",
             "&:hover": { bgcolor: "transparent", color: "primary.main" },
           }}
         >
@@ -47,6 +49,8 @@ const NavMenuDesktop: React.FC<NavMenuDesktopProps> = ({
       sx={{
         color: "text.secondary",
         minWidth: 0,
+        fontSize: "14px",
+        lineHeight: "20px",
         "&:hover": { bgcolor: "transparent", color: "primary.main" },
       }}
     >

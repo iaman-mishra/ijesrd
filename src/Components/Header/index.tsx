@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Divider, IconButton, Paper, Typography } from "@mui/material";
+import { Box, IconButton, Paper, Typography } from "@mui/material";
 import { Search } from "lucide-react";
 import React, { useCallback, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -64,9 +64,7 @@ const Header: React.FC = () => {
       <Box sx={style.container}>
         <NavDrawerButton />
         <Box sx={style.left}>
-          <Typography variant="h5" sx={style.siteName}>
-            IJESRD
-          </Typography>
+          <Typography sx={style.siteName}>IJESRD</Typography>
         </Box>
 
         <Box component={"nav"} ref={navCenterRef} sx={style.center}>
@@ -152,18 +150,17 @@ const style = {
     position: "sticky",
     top: 0,
     bgcolor: "background.default",
-    zIndex: 50,
+    zIndex: 100,
     borderTop: "1px solid",
     borderBottom: "1px solid",
     borderColor: "divider",
   },
   container: {
-    maxWidth: "1280px",
     display: "flex",
     alignItems: "center",
-    padding: "1rem 15px",
-    margin: "0 auto",
     justifyContent: "space-between",
+    paddingX: { xs: "16px", sm: "24px" },
+    paddingY: "16px",
   },
   left: { display: "flex", alignItems: "center" },
   center: {
@@ -177,7 +174,8 @@ const style = {
   siteName: {
     fontWeight: 700,
     color: "primary.main",
-    letterSpacing: 1,
+    fontSize: "24px",
+    lineHeight: "32px",
   },
   poperConatiner: {
     minWidth: 230,
