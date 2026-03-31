@@ -2,6 +2,7 @@ import { contactInfo, footerUrls } from "@/constants/data";
 import { Box, Typography, Grid } from "@mui/material";
 import Link from "next/link";
 import React from "react";
+import { ListReveal } from "../Motion/AnimatedWrapper";
 
 const FooterLinks: React.FC = () => {
   return (
@@ -24,15 +25,17 @@ const FooterLinks: React.FC = () => {
           <Typography sx={style.ColumnHeading}>{item.title}</Typography>
           <Box sx={style.linkContainer}>
             {item.links.map((url, index) => (
-              <Link
-                key={index}
-                href={url.href}
-                style={{
-                  textDecoration: "none",
-                }}
-              >
-                <Typography sx={style.link}>{url.label}</Typography>
-              </Link>
+              <ListReveal key={index} delay={index * 0.1}>
+                <Link
+                  key={index}
+                  href={url.href}
+                  style={{
+                    textDecoration: "none",
+                  }}
+                >
+                  <Typography sx={style.link}>{url.label}</Typography>
+                </Link>
+              </ListReveal>
             ))}
           </Box>
         </Grid>
@@ -41,16 +44,18 @@ const FooterLinks: React.FC = () => {
       <Grid size={{ xs: 12, md: 3 }}>
         <Typography sx={style.ColumnHeading}>Contact Us</Typography>
         <Box sx={style.linkContainer}>
-          {contactInfo.map((url) => (
-            <Link
-              key={url.label}
-              href={url.url}
-              style={{ textDecoration: "none" }}
-            >
-              <Typography sx={style.link}>
-                {url.label}: {url.value}
-              </Typography>
-            </Link>
+          {contactInfo.map((url, index) => (
+            <ListReveal key={index} delay={index * 0.1}>
+              <Link
+                key={url.label}
+                href={url.url}
+                style={{ textDecoration: "none" }}
+              >
+                <Typography sx={style.link}>
+                  {url.label}: {url.value}
+                </Typography>
+              </Link>
+            </ListReveal>
           ))}
         </Box>
       </Grid>

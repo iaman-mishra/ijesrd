@@ -2,29 +2,36 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import WhyPublishCard from "./WhyPublishCard";
 import { whyPublishData } from "@/constants/data";
+import { FadeUp, SpringUp } from "@/Components/Motion/AnimatedWrapper";
 
 const WhyPublishWithUS: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <Box sx={style.container}>
         <Box sx={style.header}>
-          <Typography sx={style.sectionTitle}>Why Publish With Us?</Typography>
-          <Typography sx={style.sectionDescription}>
-            Join a community of elite researchers and benefit from a platform
-            designed to amplify your intellectual contribution.
-          </Typography>
+          <FadeUp>
+            <Typography sx={style.sectionTitle}>
+              Why Publish With Us?
+            </Typography>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <Typography sx={style.sectionDescription}>
+              Join a community of elite researchers and benefit from a platform
+              designed to amplify your intellectual contribution.
+            </Typography>
+          </FadeUp>
         </Box>
         <Box sx={style.content}>
-          {whyPublishData.map((item, index) => {
-            return (
+          {whyPublishData.map((item, index) => (
+            <SpringUp key={index} delay={index * 0.2}>
               <WhyPublishCard
                 key={index}
                 title={item.title}
                 description={item.description}
                 icon={<item.icon color="var(--mui-palette-primary-light)" />}
               />
-            );
-          })}
+            </SpringUp>
+          ))}
         </Box>
       </Box>
     </Box>

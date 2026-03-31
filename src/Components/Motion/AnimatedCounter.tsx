@@ -32,7 +32,7 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   const isInView = useInView(ref, { once: true, margin: margin });
 
   useEffect(() => {
-    if (isInView || ref.current) {
+    if (isInView) {
       const controls = animate(count, value, {
         duration,
         ease: "easeOut",

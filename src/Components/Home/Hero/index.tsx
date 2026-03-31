@@ -3,44 +3,53 @@ import React from "react";
 
 import HeroBg from "@/assets/png/HeroBG.png";
 import { ArrowRight } from "lucide-react";
+import { FadeUp, ScaleX } from "@/Components/Motion/AnimatedWrapper";
 
 const Hero: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <Box sx={style.container}>
-        <Chip
-          label="Official Peer-Reviewed Publication"
-          sx={style.chip}
-          color="primary"
-          variant="outlined"
-        />
+        <ScaleX>
+          <Chip
+            label="Official Peer-Reviewed Publication"
+            sx={style.chip}
+            color="primary"
+            variant="outlined"
+          />
+        </ScaleX>
 
-        <Typography sx={style.heading}>
-          {"Advancing the\n Frontiers of\n"}{" "}
-          <Box component={"span"} sx={style.span}>
-            {"Engineering &\n Systems "}
+        <FadeUp delay={0.2}>
+          <Typography sx={style.heading}>
+            {"Advancing the\n Frontiers of\n"}{" "}
+            <Box component={"span"} sx={style.span}>
+              {"Engineering &\n Systems "}
+            </Box>
+            {"Research"}
+          </Typography>
+        </FadeUp>
+
+        <FadeUp delay={0.4}>
+          <Typography sx={style.description}>
+            A peer-reviewed, open-access journal dedicated to fundamental
+            engineering principles and cutting-edge digital systems. Empowering
+            researchers worldwide since 2012.
+          </Typography>
+        </FadeUp>
+
+        <FadeUp delay={0.6}>
+          <Box sx={style.buttonsBox}>
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<ArrowRight size={15} />}
+            >
+              Submit Manuscript
+            </Button>
+            <Button variant="outlined" size="large">
+              Browse Archive
+            </Button>
           </Box>
-          {"Research"}
-        </Typography>
-
-        <Typography sx={style.description}>
-          A peer-reviewed, open-access journal dedicated to fundamental
-          engineering principles and cutting-edge digital systems. Empowering
-          researchers worldwide since 2012.
-        </Typography>
-
-        <Box sx={style.buttonsBox}>
-          <Button
-            variant="contained"
-            size="large"
-            endIcon={<ArrowRight size={15} />}
-          >
-            Submit Manuscript
-          </Button>
-          <Button variant="outlined" size="large">
-            Browse Archive
-          </Button>
-        </Box>
+        </FadeUp>
       </Box>
     </Box>
   );

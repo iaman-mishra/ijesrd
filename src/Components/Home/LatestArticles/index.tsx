@@ -12,6 +12,7 @@ const LatestArticles: React.FC = () => {
             <Typography sx={style.heading}>{"Latest\nResearch"}</Typography>
             <Box sx={style.line} />
           </Box>
+
           <Button size="small" endIcon={<ArrowRight size={15} />}>
             View All Articles
           </Button>

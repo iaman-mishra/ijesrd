@@ -48,6 +48,7 @@ const style = {
     boxShadow: "0px 12px 32px 0px #001A400F",
     minWidth: 0,
     display: "flex",
+    height: "100%",
     flexDirection: "column",
   },
   chip: {

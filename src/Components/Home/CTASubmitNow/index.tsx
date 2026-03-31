@@ -4,19 +4,24 @@ import React from "react";
 
 import GraphicEllipse1 from "@/assets/png/EllipseGraphic1.png";
 import GraphicEllipse2 from "@/assets/png/EllipseGraphic2.png";
+import { FadeUp } from "@/Components/Motion/AnimatedWrapper";
 
 const CTASubmitNow: React.FC = () => {
   return (
     <Box component={"section"} sx={style.section}>
       <Box sx={style.container}>
         <Box sx={style.textBox}>
-          <Typography sx={style.title}>
-            Ready to Publish Your Research?
-          </Typography>
-          <Typography sx={style.description}>
-            Submit your manuscript today and join the ranks of global
-            engineering innovators.
-          </Typography>
+          <FadeUp>
+            <Typography sx={style.title}>
+              Ready to Publish Your Research?
+            </Typography>
+          </FadeUp>
+          <FadeUp delay={0.2}>
+            <Typography sx={style.description}>
+              Submit your manuscript today and join the ranks of global
+              engineering innovators.
+            </Typography>
+          </FadeUp>
         </Box>
 
         <Button
