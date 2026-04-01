@@ -44,10 +44,11 @@ export const baseQueryWithReauth: BaseQueryFn<
     );
 
     if (refreshResult.data) {
+      const refreshData = refreshResult.data as { accessToken: string; refreshToken: string };
       store.dispatch(
         updateToken({
-          accessToken: (refreshResult.data as any).accessToken,
-          refreshToken: (refreshResult.data as any).refreshToken,
+          accessToken: refreshData.accessToken,
+          refreshToken: refreshData.refreshToken,
         }),
       );
 
@@ -60,7 +61,6 @@ export const baseQueryWithReauth: BaseQueryFn<
 
   if (result.error) {
     const status = result.error.status;
-    const data = result.error.data as ApiResponse;
 
     if (status === 500) {
       toast.error("Something went wrong. Please try again later.");

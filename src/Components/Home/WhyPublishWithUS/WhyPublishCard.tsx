@@ -29,6 +29,7 @@ const style = {
     padding: { xs: "25px", md: "32px" },
     borderRadius: "12px",
     border: "1px solid var(--mui-palette-divider)",
+    height: "100%",
   },
   icon: {
     padding: { xs: "10px", md: "12px" },
@@ -36,7 +37,7 @@ const style = {
     maxWidth: "fit-content",
     borderRadius: "8px",
     marginBottom: { xs: "16px", md: "24px" },
-    boxShadow: "0px 1px 2px 0px #0000000D",
+    boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
   },
   title: {
     fontWeight: 700,

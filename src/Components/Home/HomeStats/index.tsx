@@ -1,5 +1,4 @@
 import AnimatedCounter from "@/Components/Motion/AnimatedCounter";
-import { BlurIn, FadeUp } from "@/Components/Motion/AnimatedWrapper";
 import { statsData } from "@/constants/data";
 import { Box, Typography } from "@mui/material";
 import React from "react";

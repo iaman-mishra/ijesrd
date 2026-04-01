@@ -34,6 +34,7 @@ const style = {
       md: "repeat(3, 1fr)",
     },
     gap: { xs: "16px", md: "40px" },
+    overflow: "hidden",
   },
 } satisfies IStyle;
 

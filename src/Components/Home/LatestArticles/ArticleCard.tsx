@@ -45,7 +45,7 @@ const style = {
     padding: { xs: "24px", md: "32px" },
     backgroundColor: "background.default",
     borderRadius: "8px",
-    boxShadow: "0px 12px 32px 0px #001A400F",
+    boxShadow: "0px 12px 32px 0px rgba(0, 26, 64, 0.06)",
     minWidth: 0,
     display: "flex",
     height: "100%",
@@ -53,7 +53,7 @@ const style = {
   },
   chip: {
     backgroundColor: "secondary.light",
-    color: "#802A0E",
+    color: "secondary.contrastText",
     borderRadius: "4px",
     fontSize: { xs: "8px", md: "9px" },
     lineHeight: "13.5px",

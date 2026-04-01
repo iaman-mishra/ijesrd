@@ -49,7 +49,7 @@ const style = {
   container: {
     padding: { xs: "40px", md: "80px" },
     backgroundColor: "primary.main",
-    boxShadow: "0px 25px 50px -12px #00000040",
+    boxShadow: "0px 25px 50px -12px rgba(0, 0, 0, 0.25)",
     borderRadius: "24px",
     display: "flex",
     flexDirection: { xs: "column", md: "row" },

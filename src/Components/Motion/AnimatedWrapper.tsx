@@ -26,6 +26,7 @@ export const SpringUp: React.FC<AnimatedWrapperProps> = ({
         delay,
       },
     }}
+    style={{ minWidth: 0 }}
     viewport={{ once: true, amount: 0.2 }}
   >
     {children}
